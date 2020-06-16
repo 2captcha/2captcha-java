@@ -1,0 +1,18 @@
+package com.twocaptcha.captcha;
+
+public class Capy extends Captcha {
+
+    public Capy() {
+        super();
+        params.put("method", "capy");
+    }
+
+    public void setSiteKey(String siteKey) {
+        params.put("captchakey", siteKey);
+    }
+
+    public void setUrl(String url) {
+        params.put("pageurl", url);
+    }
+
+}
