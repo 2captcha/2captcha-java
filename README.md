@@ -26,7 +26,18 @@ The easiest way to quickly integrate [2Captcha] into your code to automate solvi
 
 
 ## Installation
-Maven repo: TODO
+2captcha-java artifact is available in Maven Central and you can add 2captcha-java to your dependecies list in `pom.xml`
+```xml
+<dependency>
+    <groupId>com.github.2captcha</groupId>
+    <artifactId>2captcha-java</artifactId>
+    <version>1.0</version>
+</dependency>
+```
+Or you can just clone our repo from GitHub
+```sh
+git clone https://github.com/2captcha/2captcha-java.git
+```
 
 ## Configuration
 `TwoCaptcha` instance can be created like this:

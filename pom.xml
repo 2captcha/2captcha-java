@@ -6,7 +6,11 @@
 
     <groupId>com.github.2captcha</groupId>
     <artifactId>2captcha-java</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
+
+    <name>2captcha-java</name>
+    <description>Java library for easy integration with the API of 2captcha captcha solving service to bypass recaptcha, hcaptcha, funcaptcha, geetest and solve any other captchas.</description>
+    <url>https://2captcha.com/</url>
 
 	<licenses>
 		<license>
@@ -24,6 +28,23 @@
 			<id>2captcha</id>
 		</developer>
 	</developers>
+
+    <scm>
+    <connection>scm:git:git://github.com/2captcha/2captcha-java.git</connection>
+    <developerConnection>scm:git:git@github.com:2captcha/2captcha-java.git</developerConnection>
+    <url>https://github.com/2captcha/2captcha-java</url>
+    </scm>
+
+  <distributionManagement>
+    <repository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+    </repository>
+    <snapshotRepository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+    </snapshotRepository>
+  </distributionManagement>
 
     <properties>
         <maven.compiler.target>1.8</maven.compiler.target>
@@ -50,4 +71,51 @@
         </dependency>
     </dependencies>
 
+    <build>
+        <plugins>
+            <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-source-plugin</artifactId>
+            <executions>
+                <execution>
+                <id>attach-sources</id>
+                <goals>
+                    <goal>jar-no-fork</goal>
+                </goals>
+                </execution>
+            </executions>
+            </plugin>
+
+            <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-javadoc-plugin</artifactId>
+            <executions>
+                <execution>
+                <id>attach-javadocs</id>
+                <goals>
+                    <goal>jar</goal>
+                </goals>
+                </execution>
+            </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                        <configuration>
+                            <keyname>F8F9DA2268324C45C3A46015C273F1F4693E6F11</keyname>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+        </plugins>
+    </build>
 </project>
