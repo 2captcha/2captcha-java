@@ -292,7 +292,7 @@ try {
     // captcha is not solved so far
 }
 ```
-[Maven Central]: https://search.maven.org/artifact/com.github.2captcha/2captcha-java/1.0/jar
+[Maven Central]: https://search.maven.org/artifact/com.github.2captcha/2captcha-java
 [2Captcha]: https://2captcha.com/
 [2captcha sofware catalog]: https://2captcha.com/software
 [pingback settings]: https://2captcha.com/setting/pingback
