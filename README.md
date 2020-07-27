@@ -293,9 +293,9 @@ try {
 }
 ```
 [Maven Central]: https://search.maven.org/artifact/com.github.2captcha/2captcha-java
+[examples directory]: /src/main/java/examples
 [2Captcha]: https://2captcha.com/
 [2captcha sofware catalog]: https://2captcha.com/software
 [pingback settings]: https://2captcha.com/setting/pingback
 [post options]: https://2captcha.com/2captcha-api#normal_post
 [list of supported languages]: https://2captcha.com/2captcha-api#language
-[examples directory]: /examples
