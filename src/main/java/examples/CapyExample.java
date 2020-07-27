@@ -11,6 +11,8 @@ public class CapyExample {
         Capy captcha = new Capy();
         captcha.setSiteKey("PUZZLE_Abc1dEFghIJKLM2no34P56q7rStu8v");
         captcha.setUrl("https://www.mysite.com/captcha/");
+        captcha.setApiServer("https://jp.api.capy.me/");
+
 
         try {
             solver.solve(captcha);

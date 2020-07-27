@@ -11,11 +11,13 @@ public class CapyTest extends AbstractWrapperTestCase {
         Capy captcha = new Capy();
         captcha.setSiteKey("PUZZLE_Abc1dEFghIJKLM2no34P56q7rStu8v");
         captcha.setUrl("http://mysite.com/");
+        captcha.setApiServer("https://myapiserver.com/");
 
         Map<String, String> params = new HashMap<>();
         params.put("method", "capy");
         params.put("captchakey", "PUZZLE_Abc1dEFghIJKLM2no34P56q7rStu8v");
         params.put("pageurl", "http://mysite.com/");
+        params.put("api_server","https://myapiserver.com/");
 
         checkIfCorrectParamsSendAndResultReturned(captcha, params);
     }
