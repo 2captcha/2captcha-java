@@ -14,5 +14,8 @@ public class HCaptcha extends Captcha {
     public void setUrl(String url) {
         params.put("pageurl", url);
     }
-
+    
+    public void setInvisible(boolean invisible) {
+        params.put("invisible", invisible ? "1" : "0");
+    }
 }
