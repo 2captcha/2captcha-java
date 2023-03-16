@@ -84,6 +84,14 @@ public class TwoCaptcha {
     }
 
     /**
+     * @param domain
+     */
+    public void setHost(String domain) {
+        this.apiClient.setHost(domain);
+    }
+
+
+    /**
      * @param softId
      */
     public void setSoftId(int softId) {
