@@ -18,6 +18,7 @@ The easiest way to quickly integrate [2Captcha] into your code to automate solvi
   - [Canvas](#canvas)
   - [ClickCaptcha](#clickcaptcha)
   - [Rotate](#rotate)
+  - [Audio](#audio)
 - [Other methods](#other-methods)
   - [send / getResult](#send--getresult)
   - [balance](#balance)
@@ -263,6 +264,18 @@ captcha.setLang("en");
 captcha.setHintImg(new File("path/to/hint.jpg"));
 captcha.setHintText("Put the images in the correct way up");
 ```
+
+### Audio
+This method can be used to solve a audio captcha
+
+```java
+TwoCaptcha solver = new TwoCaptcha("YOUR_API_KEY");
+byte[] bytes = Files.readAllBytes(Paths.get("src/main/resources/audio-en.mp3"));
+String base64EncodedImage = Base64.getEncoder().encodeToString(bytes);
+Audio captcha = new Audio();
+captcha.setBase64(base64EncodedImage);
+```
+
 
 ## Other methods
 
