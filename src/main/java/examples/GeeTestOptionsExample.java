@@ -7,7 +7,12 @@ public class GeeTestOptionsExample {
 
     public static void main(String[] args) {
         TwoCaptcha solver = new TwoCaptcha("YOUR_API_KEY");
-
+        solver.setHost("rucaptcha.com");
+        solver.setSoftId(0);
+        solver.setDefaultTimeout(120);
+        solver.setRecaptchaTimeout(600);
+        solver.setPollingInterval(10);
+        
         GeeTest captcha = new GeeTest();
         captcha.setGt("f2ae6cadcf7886856696502e1d55e00c");
         captcha.setApiServer("api-na.geetest.com");
