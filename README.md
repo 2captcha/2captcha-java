@@ -35,6 +35,7 @@ TwoCaptcha solver = new TwoCaptcha('YOUR_API_KEY');
 ```
 Also there are few options that can be configured:
 ```java
+solver.setHost("rucaptcha.com");
 solver.setSoftId(123);
 solver.setCallback("https://your.site/result-receiver");
 solver.setDefaultTimeout(120);
