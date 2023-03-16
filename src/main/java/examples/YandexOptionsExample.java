@@ -1,7 +1,7 @@
 package examples;
 
 import com.twocaptcha.TwoCaptcha;
-import com.twocaptcha.captcha.ReCaptcha;
+import com.twocaptcha.captcha.Yandex;
 
 public class YandexOptionsExample {
 
@@ -13,7 +13,7 @@ public class YandexOptionsExample {
         solver.setRecaptchaTimeout(600);
         solver.setPollingInterval(10);
 
-        ReCaptcha captcha = new ReCaptcha();
+        Yandex captcha = new Yandex();
         captcha.setSiteKey("Y5Lh0tiycconMJGsFd3EbbuNKSp1yaZESUOIHfeV");
         captcha.setUrl("https://rutube.ru");
         captcha.setProxy("HTTPS", "login:password@IP_address:PORT");
