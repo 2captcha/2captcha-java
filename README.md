@@ -20,6 +20,7 @@ The easiest way to quickly integrate [2Captcha] into your code to automate solvi
   - [Rotate](#rotate)
   - [Audio](#audio)
   - [Yandex](#yandex)
+  - [Lemin](#lemin)
 - [Other methods](#other-methods)
   - [send / getResult](#send--getresult)
   - [balance](#balance)
@@ -276,6 +277,7 @@ String base64EncodedImage = Base64.getEncoder().encodeToString(bytes);
 Audio captcha = new Audio();
 captcha.setBase64(base64EncodedImage);
 ```
+
 ### Yandex
 Use this method to solve Yandex and obtain a token to bypass the protection.
 
@@ -286,6 +288,16 @@ captcha.setSiteKey("Y5Lh0tiycconMJGsFd3EbbuNKSp1yaZESUOIHfeV");
 captcha.setUrl("https://rutube.ru");
 ```
 
+### Lemin
+Use this method to solve Lemin and obtain a token to bypass the protection.
+
+```java
+TwoCaptcha solver = new TwoCaptcha("YOUR_API_KEY");
+Lemin captcha = new Lemin();      
+captcha.setСaptchaId("CROPPED_d3d4d56_73ca4008925b4f83a8bed59c2dd0df6d");
+captcha.setUrl("http://sat2.aksigorta.com.tr");
+captcha.setApiServer("api.leminnow.com");
+```
 
 ## Other methods
 
