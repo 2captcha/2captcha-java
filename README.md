@@ -10,6 +10,7 @@ The easiest way to quickly integrate [2Captcha] into your code to automate solvi
   - [ReCaptcha v3](#recaptcha-v3)
   - [FunCaptcha](#funcaptcha)
   - [GeeTest](#geetest)
+  - [GeeTestV4](#geetestv4)
   - [hCaptcha](#hcaptcha)
   - [KeyCaptcha](#keycaptcha)
   - [Capy](#capy)
@@ -160,6 +161,18 @@ Method to solve GeeTest puzzle captcha. Returns a set of tokens as JSON.
 ```java
 GeeTest captcha = new GeeTest();
 captcha.setGt("f2ae6cadcf7886856696502e1d55e00c");
+captcha.setApiServer("api-na.geetest.com");
+captcha.setChallenge("12345678abc90123d45678ef90123a456b");
+captcha.setUrl("https://mysite.com/captcha.html");
+captcha.setProxy("HTTPS", "login:password@IP_address:PORT");
+```
+
+### GeeTestV4
+Method to solve GeeTestV4 puzzle captcha. Returns a set of tokens as JSON.
+
+```java
+GeeTestV4 captcha = new GeeTestV4();
+captcha.setCaptchaId("72bf15796d0b69c43867452fea615052");
 captcha.setApiServer("api-na.geetest.com");
 captcha.setChallenge("12345678abc90123d45678ef90123a456b");
 captcha.setUrl("https://mysite.com/captcha.html");
