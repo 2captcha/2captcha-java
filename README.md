@@ -22,6 +22,7 @@ The easiest way to quickly integrate [2Captcha] into your code to automate solvi
   - [Yandex](#yandex)
   - [Lemin](#lemin)
   - [Turnstile](#turnstile)
+  - [AmazonWaf](#amazonwaf)
 - [Other methods](#other-methods)
   - [send / getResult](#send--getresult)
   - [balance](#balance)
@@ -308,6 +309,18 @@ TwoCaptcha solver = new TwoCaptcha("YOUR_API_KEY");
 Turnstile captcha = new Turnstile();
 captcha.setSiteKey("0x4AAAAAAAChNiVJM_WtShFf");
 captcha.setUrl("https://ace.fusionist.io");
+```
+
+### AmazonWaf
+Use this method to solve AmazonWaf and obtain a token to bypass the protection.
+
+```java
+TwoCaptcha solver = new TwoCaptcha("YOUR_API_KEY");
+AmazonWaf captcha = new AmazonWaf();
+captcha.setSiteKey("AQIDAHjcYu/GjX+QlghicBgQ/7bFaQZ+m5FKCMDnO+vTbNg96AF5H1K/siwSLK7RfstKtN5bAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglg");
+captcha.setUrl("https://non-existent-example.execute-api.us-east-1.amazonaws.com");
+captcha.setIV("test_iv");
+captcha.setContext("test_context");
 ```
 
 ## Other methods
