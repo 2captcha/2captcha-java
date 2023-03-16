@@ -21,6 +21,7 @@ The easiest way to quickly integrate [2Captcha] into your code to automate solvi
   - [Audio](#audio)
   - [Yandex](#yandex)
   - [Lemin](#lemin)
+  - [Turnstile](#turnstile)
 - [Other methods](#other-methods)
   - [send / getResult](#send--getresult)
   - [balance](#balance)
@@ -297,6 +298,16 @@ Lemin captcha = new Lemin();
 captcha.setСaptchaId("CROPPED_d3d4d56_73ca4008925b4f83a8bed59c2dd0df6d");
 captcha.setUrl("http://sat2.aksigorta.com.tr");
 captcha.setApiServer("api.leminnow.com");
+```
+
+### Turnstile
+Use this method to solve Turnstile and obtain a token to bypass the protection.
+
+```java
+TwoCaptcha solver = new TwoCaptcha("YOUR_API_KEY");
+Turnstile captcha = new Turnstile();
+captcha.setSiteKey("0x4AAAAAAAChNiVJM_WtShFf");
+captcha.setUrl("https://ace.fusionist.io");
 ```
 
 ## Other methods
