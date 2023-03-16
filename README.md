@@ -19,6 +19,7 @@ The easiest way to quickly integrate [2Captcha] into your code to automate solvi
   - [ClickCaptcha](#clickcaptcha)
   - [Rotate](#rotate)
   - [Audio](#audio)
+  - [Yandex](#yandex)
 - [Other methods](#other-methods)
   - [send / getResult](#send--getresult)
   - [balance](#balance)
@@ -274,6 +275,15 @@ byte[] bytes = Files.readAllBytes(Paths.get("src/main/resources/audio-en.mp3"));
 String base64EncodedImage = Base64.getEncoder().encodeToString(bytes);
 Audio captcha = new Audio();
 captcha.setBase64(base64EncodedImage);
+```
+### Yandex
+Use this method to solve Yandex and obtain a token to bypass the protection.
+
+```java
+TwoCaptcha solver = new TwoCaptcha("YOUR_API_KEY");
+Yandex captcha = new Yandex();
+captcha.setSiteKey("Y5Lh0tiycconMJGsFd3EbbuNKSp1yaZESUOIHfeV");
+captcha.setUrl("https://rutube.ru");
 ```
 
 
