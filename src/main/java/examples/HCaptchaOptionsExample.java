@@ -7,7 +7,12 @@ public class HCaptchaOptionsExample {
 
     public static void main(String[] args) {
         TwoCaptcha solver = new TwoCaptcha("YOUR_API_KEY");
-
+        solver.setHost("rucaptcha.com");
+        solver.setSoftId(0);
+        solver.setDefaultTimeout(120);
+        solver.setRecaptchaTimeout(600);
+        solver.setPollingInterval(10);
+        
         HCaptcha captcha = new HCaptcha();
         captcha.setSiteKey("10000000-ffff-ffff-ffff-000000000001");
         captcha.setUrl("https://www.site.com/page/");

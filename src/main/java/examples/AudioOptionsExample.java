@@ -1,23 +1,28 @@
 package examples;
 
 import com.twocaptcha.TwoCaptcha;
-import com.twocaptcha.captcha.Capy;
+import com.twocaptcha.captcha.Audio;
 
-public class CapyOptionsExample {
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.Base64;
 
-    public static void main(String[] args) {
+public class AudioOptionsExample {
+
+    public static void main(String[] args) throws Exception {
         TwoCaptcha solver = new TwoCaptcha("YOUR_API_KEY");
         solver.setHost("rucaptcha.com");
         solver.setSoftId(0);
         solver.setDefaultTimeout(120);
         solver.setRecaptchaTimeout(600);
         solver.setPollingInterval(10);
+        
+        byte[] bytes = Files.readAllBytes(Paths.get("src/main/resources/audio-ru.mp3"));
+        String base64EncodedImage = Base64.getEncoder().encodeToString(bytes);
 
-        Capy captcha = new Capy();
-        captcha.setSiteKey("PUZZLE_Abc1dEFghIJKLM2no34P56q7rStu8v");
-        captcha.setUrl("https://www.mysite.com/captcha/");
-        captcha.setApiServer("https://jp.api.capy.me/");
-        captcha.setProxy("HTTPS", "login:password@IP_address:PORT");
+        Audio captcha = new Audio();
+        captcha.setBase64(base64EncodedImage);
+        captcha.setLang("ru");
 
         try {
             solver.solve(captcha);

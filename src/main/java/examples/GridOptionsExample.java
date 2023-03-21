@@ -8,7 +8,12 @@ public class GridOptionsExample {
 
     public static void main(String[] args) {
         TwoCaptcha solver = new TwoCaptcha("YOUR_API_KEY");
-
+        solver.setHost("rucaptcha.com");
+        solver.setSoftId(0);
+        solver.setDefaultTimeout(120);
+        solver.setRecaptchaTimeout(600);
+        solver.setPollingInterval(10);
+        
         Grid captcha = new Grid();
         captcha.setFile("src/main/resources/grid_2.jpg");
         captcha.setRows(3);

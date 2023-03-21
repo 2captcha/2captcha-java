@@ -1,9 +1,9 @@
 package examples;
 
 import com.twocaptcha.TwoCaptcha;
-import com.twocaptcha.captcha.Capy;
+import com.twocaptcha.captcha.Yandex;
 
-public class CapyOptionsExample {
+public class YandexOptionsExample {
 
     public static void main(String[] args) {
         TwoCaptcha solver = new TwoCaptcha("YOUR_API_KEY");
@@ -13,10 +13,9 @@ public class CapyOptionsExample {
         solver.setRecaptchaTimeout(600);
         solver.setPollingInterval(10);
 
-        Capy captcha = new Capy();
-        captcha.setSiteKey("PUZZLE_Abc1dEFghIJKLM2no34P56q7rStu8v");
-        captcha.setUrl("https://www.mysite.com/captcha/");
-        captcha.setApiServer("https://jp.api.capy.me/");
+        Yandex captcha = new Yandex();
+        captcha.setSiteKey("Y5Lh0tiycconMJGsFd3EbbuNKSp1yaZESUOIHfeV");
+        captcha.setUrl("https://rutube.ru");
         captcha.setProxy("HTTPS", "login:password@IP_address:PORT");
 
         try {
