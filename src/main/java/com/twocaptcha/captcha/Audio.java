@@ -4,7 +4,7 @@ public class Audio extends Captcha {
 
     public Audio() {
         super();
-        params.put("method", "solveaudio");
+        params.put("method", "audio");
     }
 
     public void setBase64(String base64) {
