@@ -10,26 +10,16 @@ public class Rotate extends Captcha {
         params.put("method", "rotatecaptcha");
     }
 
-    public Rotate(String filePath) {
-        this(new File(filePath));
-    }
-
     public Rotate(File file) {
         this();
-        setFile(file);
     }
 
     public Rotate(List<File> files) {
         this();
-        setFiles(files);
     }
 
-    public void setFile(String filePath) {
-        setFile(new File(filePath));
-    }
-
-    public void setFile(File file) {
-        files.put("file_1", file);
+    public void setBase64(String base64) {
+        params.put("body", base64);
     }
 
     public void setFiles(List<File> files) {
