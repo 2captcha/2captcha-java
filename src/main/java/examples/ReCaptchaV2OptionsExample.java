@@ -17,6 +17,8 @@ public class ReCaptchaV2OptionsExample {
         captcha.setSiteKey("6Le-wvkSVVABCPBMRTvw0Q4Muexq1bi0DJwx_mJ-");
         captcha.setUrl("https://mysite.com/page/with/recaptcha");
         captcha.setInvisible(true);
+        captcha.setEnterprise(true);
+        captcha.setData("foo");
         captcha.setAction("verify");
         captcha.setProxy("HTTPS", "login:password@IP_address:PORT");
 
