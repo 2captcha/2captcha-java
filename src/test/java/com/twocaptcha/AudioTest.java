@@ -24,6 +24,7 @@ public class AudioTest extends AbstractWrapperTestCase {
         params.put("method", "audio");
         params.put("lang", "ru");
         params.put("body", base64EncodedImage);
+        params.put("soft_id", "4581");
 
 
         checkIfCorrectParamsSendAndResultReturned(captcha, params);

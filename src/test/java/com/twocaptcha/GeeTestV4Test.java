@@ -20,6 +20,7 @@ public class GeeTestV4Test extends AbstractWrapperTestCase {
         params.put("api_server", "api-na.geetest.com");
         params.put("challenge", "12345678abc90123d45678ef90123a456b");
         params.put("pageurl", "https://mysite.com/captcha.html");
+        params.put("soft_id", "4581");
 
         checkIfCorrectParamsSendAndResultReturned(captcha, params);
     }
