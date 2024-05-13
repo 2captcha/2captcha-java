@@ -25,7 +25,7 @@ public class TwoCaptcha {
      * ID of software developer. Developers who integrated their software
      * with our service get reward: 10% of spendings of their software users.
      */
-    private int softId;
+    private int softId = 4581;
 
     /**
      * URL to which the result will be sent

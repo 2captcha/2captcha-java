@@ -20,6 +20,7 @@ public class AmazonWafTest extends AbstractWrapperTestCase {
         params.put("pageurl", "https://non-existent-example.execute-api.us-east-1.amazonaws.com");
         params.put("iv", "test_iv");
         params.put("context", "test_context");
+        params.put("soft_id", "4581");
 
         checkIfCorrectParamsSendAndResultReturned(captcha, params);
     }

@@ -18,6 +18,7 @@ public class CapyTest extends AbstractWrapperTestCase {
         params.put("captchakey", "PUZZLE_Abc1dEFghIJKLM2no34P56q7rStu8v");
         params.put("pageurl", "http://mysite.com/");
         params.put("api_server","https://myapiserver.com/");
+        params.put("soft_id", "4581");
 
         checkIfCorrectParamsSendAndResultReturned(captcha, params);
     }

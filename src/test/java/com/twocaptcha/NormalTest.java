@@ -19,6 +19,7 @@ public class NormalTest extends AbstractWrapperTestCase {
 
         Map<String, String> params = new HashMap<>();
         params.put("method", "post");
+        params.put("soft_id", "4581");
 
         Map<String, File> files = new HashMap<>();
         files.put("file", image);
@@ -35,6 +36,7 @@ public class NormalTest extends AbstractWrapperTestCase {
 
         Map<String, String> params = new HashMap<>();
         params.put("method", "post");
+        params.put("soft_id", "4581");
 
         Map<String, File> files = new HashMap<>();
         files.put("file", image);
@@ -49,6 +51,7 @@ public class NormalTest extends AbstractWrapperTestCase {
         Map<String, String> params = new HashMap<>();
         params.put("method", "base64");
         params.put("body", "...");
+        params.put("soft_id", "4581");
 
         checkIfCorrectParamsSendAndResultReturned(captcha, params);
     }
@@ -79,6 +82,7 @@ public class NormalTest extends AbstractWrapperTestCase {
         params.put("calc", "0");
         params.put("lang", "en");
         params.put("textinstructions", hintText);
+        params.put("soft_id", "4581");
 
         Map<String, File> files = new HashMap<>();
         files.put("file", image);
