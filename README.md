@@ -31,8 +31,9 @@ The easiest way to quickly integrate [2Captcha] into your code to automate solvi
     - [send / getResult](#send--getresult)
     - [balance](#balance)
     - [report](#report)
-    - [proxies](#proxies)
+  - [Proxies](#proxies)
   - [Error handling](#error-handling)
+  - [Useful links](#useful-links)
 
 
 ## Installation
@@ -356,7 +357,7 @@ solver.report(captcha.getId(), true); // captcha solved correctly
 solver.report(captcha.getId(), false); // captcha solved incorrectly
 ```
 
-### Proxies
+## Proxies
 You can pass your proxy as an additional argument for methods: recaptcha, funcaptcha, geetest, geetest v4, hcaptcha, keycaptcha, capy puzzle, lemin, turnstile, amazon waf and etc. The proxy will be forwarded to the API to solve the captcha.
 
 We have our own proxies that we can offer you. [Buy residential proxies](https://2captcha.com/proxy/residential-proxies) for avoid restrictions and blocks. [Quick start](https://2captcha.com/proxy?openAddTrafficModal=true).
@@ -382,10 +383,13 @@ try {
     // captcha is not solved so far
 }
 ```
-[Maven Central]: https://search.maven.org/artifact/com.github.2captcha/2captcha-java
-[examples directory]: /src/main/java/examples
-[2Captcha]: https://2captcha.com/
-[2captcha sofware catalog]: https://2captcha.com/software
-[pingback settings]: https://2captcha.com/setting/pingback
-[post options]: https://2captcha.com/2captcha-api#normal_post
-[list of supported languages]: https://2captcha.com/2captcha-api#language
+
+## Useful links
+
+- [Maven Central](https://search.maven.org/artifact/com.github.2captcha/2captcha-java)
+- [Examples directory](./src/main/java/examples)
+- [2Captcha](https://2captcha.com/)
+- [2captcha sofware catalog](https://2captcha.com/software)
+- [Pingback settings](https://2captcha.com/setting/pingback)
+- [Post options](https://2captcha.com/2captcha-api#normal_post)
+- [List of supported languages](https://2captcha.com/2captcha-api#language)
