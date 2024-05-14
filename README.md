@@ -33,7 +33,6 @@ The easiest way to quickly integrate [2Captcha] into your code to automate solvi
     - [report](#report)
   - [Proxies](#proxies)
   - [Error handling](#error-handling)
-  - [Useful links](#useful-links)
 
 
 ## Installation
@@ -384,12 +383,11 @@ try {
 }
 ```
 
-## Useful links
-
-- [Maven Central](https://search.maven.org/artifact/com.github.2captcha/2captcha-java)
-- [Examples directory](./src/main/java/examples)
-- [2Captcha](https://2captcha.com/)
-- [2captcha sofware catalog](https://2captcha.com/software)
-- [Pingback settings](https://2captcha.com/setting/pingback)
-- [Post options](https://2captcha.com/2captcha-api#normal_post)
-- [List of supported languages](https://2captcha.com/2captcha-api#language)
+<!-- Shared links -->
+[Maven Central]: https://search.maven.org/artifact/com.github.2captcha/2captcha-java
+[Examples directory]: ./src/main/java/examples
+[2Captcha]: https://2captcha.com/
+[2captcha sofware catalog]: https://2captcha.com/software
+[Pingback settings]: https://2captcha.com/setting/pingback
+[Post options]: https://2captcha.com/2captcha-api#normal_post
+[List of supported languages]: https://2captcha.com/2captcha-api#language
