@@ -7,11 +7,11 @@
 <a href="https://github.com/2captcha/2captcha-java"><img src="https://github.com/user-attachments/assets/1c576ba8-aa8d-4d6f-b1a4-b346473a4e1b" width="50" height="30"></a>
 <a href="https://github.com/2captcha/2captcha-csharp"><img src="https://github.com/user-attachments/assets/f4d449de-780b-49ed-bb0a-b70c82ec4b32" width="38" height="30"></a>
 
-# JAVA Module for 2Captcha API
+# JAVA Module for 2Captcha API (captcha solver)
 The easiest way to quickly integrate [2Captcha] into your code to automate solving of any types of captcha.
 Examples of API requests for different captcha types are available on the [Java captcha solver](https://2captcha.com/lang/java) page.
 
-- [JAVA Module for 2Captcha API](#java-module-for-2captcha-api)
+- [JAVA Module for 2Captcha API (captcha solver)](#java-module-for-2captcha-api-captcha-solver)
   - [Installation](#installation)
   - [Configuration](#configuration)
     - [TwoCaptcha instance options](#twocaptcha-instance-options)
