@@ -19,5 +19,4 @@ public class FriendlyCaptchaExample {
             System.out.println("Error occurred: " + e.getMessage());
         }
     }
-
 }
