@@ -6,6 +6,7 @@ import com.twocaptcha.exceptions.ApiException;
 import com.twocaptcha.exceptions.NetworkException;
 import com.twocaptcha.exceptions.TimeoutException;
 import com.twocaptcha.exceptions.ValidationException;
+import org.json.JSONObject;
 
 import java.io.File;
 import java.util.HashMap;
@@ -219,11 +220,25 @@ public class TwoCaptcha {
 
         String response = apiClient.in(params, files);
 
+        return handleResponse(response);
+/*
         if (!response.startsWith("OK|")) {
             throw new ApiException("Cannot recognise api response (" + response + ")");
         }
 
-        return response.substring(3);
+        return response.substring(3);*/
+    }
+
+    String handleResponse(String response) {
+        if (response.startsWith("OK|")) {
+            return response.substring(3);
+        } else {
+            //{"status":1,"request":"77225795845"}
+            JSONObject jsonObject = new JSONObject(response);
+            return jsonObject.getString("request");
+            /*if(response.contains("\"request\":"))
+            return response["request"];*/
+        }
     }
 
     /**
@@ -237,6 +252,7 @@ public class TwoCaptcha {
         Map<String, String> params = new HashMap<>();
         params.put("action", "get");
         params.put("id", id);
+        params.put("json", "1");
 
         String response = res(params);
 
@@ -244,11 +260,7 @@ public class TwoCaptcha {
             return null;
         }
 
-        if (!response.startsWith("OK|")) {
-            throw new ApiException("Cannot recognise api response (" + response + ")");
-        }
-
-        return response.substring(3);
+        return handleResponse(response);
     }
 
     /**
@@ -313,6 +325,11 @@ public class TwoCaptcha {
      * @param params
      */
     private void sendAttachDefaultParams(Map<String, String> params) {
+
+        if (!params.containsKey("json")) {
+            params.put("json", "1");
+        }
+
         params.put("key", apiKey);
 
         if (callback != null) {
