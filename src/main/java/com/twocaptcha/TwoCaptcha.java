@@ -191,7 +191,7 @@ public class TwoCaptcha {
             }
 
             try {
-                String result = getResult(captcha.getId());
+                String result = getResult(captcha.getId(), captcha.getParams().get("json"));
                 if (result != null) {
                     captcha.setCode(result);
                     return;
@@ -253,22 +253,6 @@ public class TwoCaptcha {
 
             return response.substring(3);
         }
-/*        if (response.startsWith("OK|")) {
-            return response.substring(3);
-        } else {
-            //{"status":1,"request":"77225795845"}
-            JSONObject jsonObject = new JSONObject(response);
-            return jsonObject.getString("request");
-            /*if(response.contains("\"request\":"))
-            return response["request"];*/
-//        }
-
-        /*
-        if (!response.startsWith("OK|")) {
-            throw new ApiException("Cannot recognise api response (" + response + ")");
-        }
-
-        return response.substring(3);*/
     }
 
     /**
@@ -278,18 +262,14 @@ public class TwoCaptcha {
      * @return
      * @throws Exception
      */
-    public String getResult(String id) throws Exception {
+    public String getResult(String id, String jsonResponse) throws Exception {
         Map<String, String> params = new HashMap<>();
         params.put("action", "get");
         params.put("id", id);
-        params.put("json", "1");
+        params.put("json", jsonResponse);
 
         String response = res(params);
-/*
-        if (response.equals("CAPCHA_NOT_READY")) {
-            return null;
-        }
-*/
+
         return handleResponse(response);
     }
 
