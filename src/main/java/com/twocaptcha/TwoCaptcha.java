@@ -6,6 +6,7 @@ import com.twocaptcha.exceptions.ApiException;
 import com.twocaptcha.exceptions.NetworkException;
 import com.twocaptcha.exceptions.TimeoutException;
 import com.twocaptcha.exceptions.ValidationException;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.File;
@@ -229,8 +230,30 @@ public class TwoCaptcha {
         return response.substring(3);*/
     }
 
-    String handleResponse(String response) {
-        if (response.startsWith("OK|")) {
+    String handleResponse(String response) throws ApiException {
+
+        try {
+            JSONObject jsonObject = new JSONObject(response);
+            String request = jsonObject.getString("request");
+
+            if (request.equals("CAPCHA_NOT_READY")) {
+                return null;
+            }
+
+            return jsonObject.getString("request");
+
+        } catch (JSONException exception) {
+            if (response.equals("CAPCHA_NOT_READY")) {
+                return null;
+            }
+
+            if (!response.startsWith("OK|")) {
+                throw new ApiException("Cannot recognise api response (" + response + ")");
+            }
+
+            return response.substring(3);
+        }
+/*        if (response.startsWith("OK|")) {
             return response.substring(3);
         } else {
             //{"status":1,"request":"77225795845"}
@@ -238,7 +261,14 @@ public class TwoCaptcha {
             return jsonObject.getString("request");
             /*if(response.contains("\"request\":"))
             return response["request"];*/
+//        }
+
+        /*
+        if (!response.startsWith("OK|")) {
+            throw new ApiException("Cannot recognise api response (" + response + ")");
         }
+
+        return response.substring(3);*/
     }
 
     /**
@@ -255,11 +285,11 @@ public class TwoCaptcha {
         params.put("json", "1");
 
         String response = res(params);
-
+/*
         if (response.equals("CAPCHA_NOT_READY")) {
             return null;
         }
-
+*/
         return handleResponse(response);
     }
 
