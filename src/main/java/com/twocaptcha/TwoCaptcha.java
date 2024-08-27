@@ -222,12 +222,6 @@ public class TwoCaptcha {
         String response = apiClient.in(params, files);
 
         return handleResponse(response);
-/*
-        if (!response.startsWith("OK|")) {
-            throw new ApiException("Cannot recognise api response (" + response + ")");
-        }
-
-        return response.substring(3);*/
     }
 
     String handleResponse(String response) throws ApiException {
