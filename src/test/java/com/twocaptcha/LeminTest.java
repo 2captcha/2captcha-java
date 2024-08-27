@@ -20,6 +20,7 @@ public class LeminTest extends AbstractWrapperTestCase {
         params.put("pageurl", "http://sat2.aksigorta.com.tr");
         params.put("api_server", "api.leminnow.com");
         params.put("soft_id", "4581");
+        params.put("json", "1");
 
         checkIfCorrectParamsSendAndResultReturned(captcha, params);
     }

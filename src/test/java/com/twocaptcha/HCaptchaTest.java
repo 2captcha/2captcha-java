@@ -17,6 +17,7 @@ public class HCaptchaTest extends AbstractWrapperTestCase {
         params.put("sitekey", "f1ab2cdefa3456789012345b6c78d90e");
         params.put("pageurl", "https://www.site.com/page/");
         params.put("soft_id", "4581");
+        params.put("json", "1");
 
         checkIfCorrectParamsSendAndResultReturned(captcha, params);
     }

@@ -16,6 +16,7 @@ public class TextTest extends AbstractWrapperTestCase {
         params.put("method", "post");
         params.put("textcaptcha", question);
         params.put("soft_id", "4581");
+        params.put("json", "1");
 
         checkIfCorrectParamsSendAndResultReturned(captcha, params);
     }
@@ -28,6 +29,7 @@ public class TextTest extends AbstractWrapperTestCase {
         params.put("method", "post");
         params.put("textcaptcha", question);
         params.put("soft_id", "4581");
+        params.put("json", "1");
 
         checkIfCorrectParamsSendAndResultReturned(captcha, params);
     }
@@ -42,8 +44,8 @@ public class TextTest extends AbstractWrapperTestCase {
         params.put("textcaptcha", question);
         params.put("lang", "en");
         params.put("soft_id", "4581");
+        params.put("json", "1");
 
         checkIfCorrectParamsSendAndResultReturned(captcha, params);
     }
-
 }

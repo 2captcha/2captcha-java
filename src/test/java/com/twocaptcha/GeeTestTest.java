@@ -21,6 +21,7 @@ public class GeeTestTest extends AbstractWrapperTestCase {
         params.put("challenge", "69A21A01-CC7B-B9C6-0F9A-E7FA06677FFC");
         params.put("pageurl", "https://launches.endclothing.com/distil_r_captcha.html");
         params.put("soft_id", "4581");
+        params.put("json", "1");
 
         checkIfCorrectParamsSendAndResultReturned(captcha, params);
     }

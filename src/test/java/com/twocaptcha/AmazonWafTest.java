@@ -21,6 +21,7 @@ public class AmazonWafTest extends AbstractWrapperTestCase {
         params.put("iv", "test_iv");
         params.put("context", "test_context");
         params.put("soft_id", "4581");
+        params.put("json", "1");
 
         checkIfCorrectParamsSendAndResultReturned(captcha, params);
     }

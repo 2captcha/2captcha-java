@@ -23,6 +23,7 @@ public class KeyCaptchaTest extends AbstractWrapperTestCase {
         params.put("s_s_c_web_server_sign2", "2ca3abe86d90c6142d5571db98af6714");
         params.put("pageurl", "https://www.keycaptcha.ru/demo-magnetic/");
         params.put("soft_id", "4581");
+        params.put("json", "1");
 
         checkIfCorrectParamsSendAndResultReturned(captcha, params);
     }

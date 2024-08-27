@@ -35,6 +35,7 @@ public abstract class AbstractWrapperTestCase extends TestCase {
         resParams.put("action", "get");
         resParams.put("id", captchaId);
         resParams.put("key", apiKey);
+        resParams.put("json", null);
 
         ApiClient apiClient = mock(ApiClient.class);
         when(apiClient.in(any(), any())).thenReturn("OK|" + captchaId);

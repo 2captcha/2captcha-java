@@ -20,6 +20,7 @@ public class NormalTest extends AbstractWrapperTestCase {
         Map<String, String> params = new HashMap<>();
         params.put("method", "post");
         params.put("soft_id", "4581");
+        params.put("json", "1");
 
         Map<String, File> files = new HashMap<>();
         files.put("file", image);

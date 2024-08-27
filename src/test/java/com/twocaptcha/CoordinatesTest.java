@@ -21,6 +21,7 @@ public class CoordinatesTest extends AbstractWrapperTestCase {
         params.put("method", "post");
         params.put("coordinatescaptcha", "1");
         params.put("soft_id", "4581");
+        params.put("json", "1");
 
         Map<String, File> files = new HashMap<>();
         files.put("file", image);
@@ -38,6 +39,7 @@ public class CoordinatesTest extends AbstractWrapperTestCase {
         params.put("method", "post");
         params.put("coordinatescaptcha", "1");
         params.put("soft_id", "4581");
+        params.put("json", "1");
 
         Map<String, File> files = new HashMap<>();
         files.put("file", image);
@@ -54,6 +56,7 @@ public class CoordinatesTest extends AbstractWrapperTestCase {
         params.put("coordinatescaptcha", "1");
         params.put("body", "...");
         params.put("soft_id", "4581");
+        params.put("json", "1");
 
         checkIfCorrectParamsSendAndResultReturned(captcha, params);
     }
@@ -74,6 +77,7 @@ public class CoordinatesTest extends AbstractWrapperTestCase {
         params.put("lang", "en");
         params.put("textinstructions", hintText);
         params.put("soft_id", "4581");
+        params.put("json", "1");
 
         Map<String, File> files = new HashMap<>();
         files.put("file", image);
