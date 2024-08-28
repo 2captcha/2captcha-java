@@ -37,6 +37,7 @@ Examples of API requests for different captcha types are available on the [Java 
     - [Lemin](#lemin)
     - [Turnstile](#turnstile)
     - [AmazonWaf](#amazonwaf)
+    - [FriendlyCaptcha](#friendlycaptcha)
   - [Other methods](#other-methods)
     - [send / getResult](#send--getresult)
     - [balance](#balance)
@@ -341,6 +342,16 @@ captcha.setSiteKey("AQIDAHjcYu/GjX+QlghicBgQ/7bFaQZ+m5FKCMDnO+vTbNg96AF5H1K/siwS
 captcha.setUrl("https://non-existent-example.execute-api.us-east-1.amazonaws.com");
 captcha.setIV("test_iv");
 captcha.setContext("test_context");
+```
+
+### FriendlyCaptcha
+Use this method to solve FriendlyCaptcha and obtain a token to bypass the protection.
+
+```java
+TwoCaptcha solver = new TwoCaptcha("YOUR_API_KEY");
+FriendlyCaptcha friendlyCaptcha = new FriendlyCaptcha();
+friendlyCaptcha.setSiteKey("FCMST5VUMCBOCGQ9");
+friendlyCaptcha.setPageUrl("https://geizhals.de/455973138?fsean=5901747021356");
 ```
 
 ## Other methods
