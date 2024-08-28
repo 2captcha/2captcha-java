@@ -56,6 +56,8 @@ public class TwoCaptcha {
      */
     private boolean lastCaptchaHasCallback;
 
+    private String jsonResponseFormat = "1";
+
     /**
      * Network client
      */
@@ -76,6 +78,12 @@ public class TwoCaptcha {
     public TwoCaptcha(String apiKey) {
         this();
         setApiKey(apiKey);
+    }
+
+    public TwoCaptcha(String apiKey, String jsonRespose) {
+        this();
+        setApiKey(apiKey);
+        jsonResponseFormat = jsonRespose;
     }
 
     /**
@@ -191,7 +199,8 @@ public class TwoCaptcha {
             }
 
             try {
-                String result = getResult(captcha.getId(), captcha.getParams().get("json"));
+                String result = getResult(captcha.getId());
+
                 if (result != null) {
                     captcha.setCode(result);
                     return;
@@ -228,6 +237,9 @@ public class TwoCaptcha {
 
         try {
             JSONObject jsonObject = new JSONObject(response);
+            //temp
+            System.out.println("result is :::: "+response);
+
             String request = jsonObject.getString("request");
 
             if (request.equals("CAPCHA_NOT_READY")) {
@@ -256,11 +268,11 @@ public class TwoCaptcha {
      * @return
      * @throws Exception
      */
-    public String getResult(String id, String jsonResponse) throws Exception {
+    public String getResult(String id) throws Exception {
         Map<String, String> params = new HashMap<>();
         params.put("action", "get");
         params.put("id", id);
-        params.put("json", jsonResponse);
+        params.put("json", jsonResponseFormat);
 
         String response = res(params);
 
@@ -329,12 +341,13 @@ public class TwoCaptcha {
      * @param params
      */
     private void sendAttachDefaultParams(Map<String, String> params) {
-
+/*
         if (!params.containsKey("json")) {
             params.put("json", "1");
         }
-
+*/
         params.put("key", apiKey);
+        params.put("json", jsonResponseFormat);
 
         if (callback != null) {
             if (!params.containsKey("pingback")) {
