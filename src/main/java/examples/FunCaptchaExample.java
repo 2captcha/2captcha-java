@@ -6,7 +6,7 @@ import com.twocaptcha.captcha.FunCaptcha;
 public class FunCaptchaExample {
 
     public static void main(String[] args) {
-        TwoCaptcha solver = new TwoCaptcha("YOUR_API_KEY");
+        TwoCaptcha solver = new TwoCaptcha(args[0]);
 
         FunCaptcha captcha = new FunCaptcha();
         captcha.setSiteKey("69A21A01-CC7B-B9C6-0F9A-E7FA06677FFC");

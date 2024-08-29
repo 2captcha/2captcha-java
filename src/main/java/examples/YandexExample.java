@@ -6,7 +6,7 @@ import com.twocaptcha.captcha.Yandex;
 public class YandexExample {
 
     public static void main(String[] args) {
-        TwoCaptcha solver = new TwoCaptcha("YOUR_API_KEY");
+        TwoCaptcha solver = new TwoCaptcha(args[0]);
 
         Yandex captcha = new Yandex();
         captcha.setSiteKey("Y5Lh0tiycconMJGsFd3EbbuNKSp1yaZESUOIHfeV");

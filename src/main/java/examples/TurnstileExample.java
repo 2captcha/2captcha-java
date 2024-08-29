@@ -6,7 +6,7 @@ import com.twocaptcha.captcha.Turnstile;
 public class TurnstileExample {
 
     public static void main(String[] args) {
-        TwoCaptcha solver = new TwoCaptcha("YOUR_API_KEY");
+        TwoCaptcha solver = new TwoCaptcha(args[0]);
 
         Turnstile captcha = new Turnstile();
         captcha.setSiteKey("0x4AAAAAAAChNiVJM_WtShFf");

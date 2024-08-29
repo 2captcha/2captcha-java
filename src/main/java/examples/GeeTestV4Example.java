@@ -6,7 +6,7 @@ import com.twocaptcha.captcha.GeeTestV4;
 public class GeeTestV4Example {
 
     public static void main(String[] args) {
-        TwoCaptcha solver = new TwoCaptcha("YOUR_API_KEY");
+        TwoCaptcha solver = new TwoCaptcha(args[0]);
 
         GeeTestV4 captcha = new GeeTestV4();
         captcha.setCaptchaId("72bf15796d0b69c43867452fea615052");

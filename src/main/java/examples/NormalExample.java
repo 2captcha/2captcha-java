@@ -6,7 +6,7 @@ import com.twocaptcha.captcha.Normal;
 public class NormalExample {
 
     public static void main(String[] args) {
-        TwoCaptcha solver = new TwoCaptcha("YOUR_API_KEY");
+        TwoCaptcha solver = new TwoCaptcha(args[0]);
 
         Normal captcha = new Normal("src/main/resources/normal.jpg");
 

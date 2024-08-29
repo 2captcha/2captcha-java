@@ -294,7 +294,7 @@ captcha.setHintText("Put the images in the correct way up");
 This method can be used to solve a audio captcha
 
 ```java
-TwoCaptcha solver = new TwoCaptcha("YOUR_API_KEY");
+TwoCaptcha solver = new TwoCaptcha(args[0]);
 byte[] bytes = Files.readAllBytes(Paths.get("src/main/resources/audio-en.mp3"));
 String base64EncodedImage = Base64.getEncoder().encodeToString(bytes);
 Audio captcha = new Audio();
@@ -305,7 +305,7 @@ captcha.setBase64(base64EncodedImage);
 Use this method to solve Yandex and obtain a token to bypass the protection.
 
 ```java
-TwoCaptcha solver = new TwoCaptcha("YOUR_API_KEY");
+TwoCaptcha solver = new TwoCaptcha(args[0]);
 Yandex captcha = new Yandex();
 captcha.setSiteKey("Y5Lh0tiycconMJGsFd3EbbuNKSp1yaZESUOIHfeV");
 captcha.setUrl("https://rutube.ru");
@@ -315,7 +315,7 @@ captcha.setUrl("https://rutube.ru");
 Use this method to solve Lemin and obtain a token to bypass the protection.
 
 ```java
-TwoCaptcha solver = new TwoCaptcha("YOUR_API_KEY");
+TwoCaptcha solver = new TwoCaptcha(args[0]);
 Lemin captcha = new Lemin();      
 captcha.setСaptchaId("CROPPED_d3d4d56_73ca4008925b4f83a8bed59c2dd0df6d");
 captcha.setUrl("http://sat2.aksigorta.com.tr");
@@ -326,7 +326,7 @@ captcha.setApiServer("api.leminnow.com");
 Use this method to solve Turnstile and obtain a token to bypass the protection.
 
 ```java
-TwoCaptcha solver = new TwoCaptcha("YOUR_API_KEY");
+TwoCaptcha solver = new TwoCaptcha(args[0]);
 Turnstile captcha = new Turnstile();
 captcha.setSiteKey("0x4AAAAAAAChNiVJM_WtShFf");
 captcha.setUrl("https://ace.fusionist.io");
@@ -336,7 +336,7 @@ captcha.setUrl("https://ace.fusionist.io");
 Use this method to solve AmazonWaf and obtain a token to bypass the protection.
 
 ```java
-TwoCaptcha solver = new TwoCaptcha("YOUR_API_KEY");
+TwoCaptcha solver = new TwoCaptcha(args[0]);
 AmazonWaf captcha = new AmazonWaf();
 captcha.setSiteKey("AQIDAHjcYu/GjX+QlghicBgQ/7bFaQZ+m5FKCMDnO+vTbNg96AF5H1K/siwSLK7RfstKtN5bAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglg");
 captcha.setUrl("https://non-existent-example.execute-api.us-east-1.amazonaws.com");
@@ -348,7 +348,7 @@ captcha.setContext("test_context");
 Use this method to solve FriendlyCaptcha and obtain a token to bypass the protection.
 
 ```java
-TwoCaptcha solver = new TwoCaptcha("YOUR_API_KEY");
+TwoCaptcha solver = new TwoCaptcha(args[0]);
 FriendlyCaptcha friendlyCaptcha = new FriendlyCaptcha();
 friendlyCaptcha.setSiteKey("FCMST5VUMCBOCGQ9");
 friendlyCaptcha.setPageUrl("https://geizhals.de/455973138?fsean=5901747021356");

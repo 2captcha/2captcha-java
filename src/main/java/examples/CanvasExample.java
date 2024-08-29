@@ -6,7 +6,7 @@ import com.twocaptcha.captcha.Canvas;
 public class CanvasExample {
 
     public static void main(String[] args) {
-        TwoCaptcha solver = new TwoCaptcha("YOUR_API_KEY");
+        TwoCaptcha solver = new TwoCaptcha(args[0]);
 
         Canvas captcha = new Canvas();
         captcha.setFile("src/main/resources/canvas.jpg");

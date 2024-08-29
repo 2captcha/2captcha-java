@@ -10,7 +10,7 @@ import java.util.Base64;
 public class RotateExample {
 
     public static void main(String[] args) throws Exception {
-        TwoCaptcha solver = new TwoCaptcha("YOUR_API_KEY");
+        TwoCaptcha solver = new TwoCaptcha(args[0]);
 
         byte[] bytes = Files.readAllBytes(Paths.get("src/main/resources/rotate.jpg"));
         String base64EncodedImage = Base64.getEncoder().encodeToString(bytes);

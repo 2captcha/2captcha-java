@@ -6,7 +6,7 @@ import com.twocaptcha.captcha.FriendlyCaptcha;
 public class FriendlyCaptchaExample {
 
     public static void main(String[] args) {
-        TwoCaptcha solver = new TwoCaptcha("YOUR_API_KEY", "1");
+        TwoCaptcha solver = new TwoCaptcha(args[0]);
 
         FriendlyCaptcha friendlyCaptcha = new FriendlyCaptcha();
         friendlyCaptcha.setSiteKey("FCMST5VUMCBOCGQ9");
