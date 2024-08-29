@@ -46,10 +46,6 @@ public abstract class Captcha {
         params.put("pingback", callback);
     }
 
-    public void setResponseTypeString() {
-        params.put("json", "0");
-    }
-
     public Map<String, String> getParams() {
         Map<String, String> params = new HashMap<String, String>(this.params);
 
