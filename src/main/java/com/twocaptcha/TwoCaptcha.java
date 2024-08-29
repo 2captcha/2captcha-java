@@ -237,9 +237,6 @@ public class TwoCaptcha {
 
         try {
             JSONObject jsonObject = new JSONObject(response);
-            //temp
-            System.out.println("result is :::: "+response);
-
             String request = jsonObject.getString("request");
 
             if (request.equals("CAPCHA_NOT_READY")) {
@@ -341,11 +338,6 @@ public class TwoCaptcha {
      * @param params
      */
     private void sendAttachDefaultParams(Map<String, String> params) {
-/*
-        if (!params.containsKey("json")) {
-            params.put("json", "1");
-        }
-*/
         params.put("key", apiKey);
         params.put("json", jsonResponseFormat);
 

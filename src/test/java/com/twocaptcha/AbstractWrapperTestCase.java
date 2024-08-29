@@ -35,13 +35,13 @@ public abstract class AbstractWrapperTestCase extends TestCase {
         resParams.put("action", "get");
         resParams.put("id", captchaId);
         resParams.put("key", apiKey);
-        resParams.put("json", null);
+        resParams.put("json", "1");
 
         ApiClient apiClient = mock(ApiClient.class);
         when(apiClient.in(any(), any())).thenReturn("OK|" + captchaId);
         when(apiClient.res(any())).thenReturn("OK|" + code);
 
-        TwoCaptcha solver = new TwoCaptcha(apiKey);
+        TwoCaptcha solver = new TwoCaptcha(apiKey/*, "1"*/);
         solver.setPollingInterval(1);
         solver.setHttpClient(apiClient);
 
