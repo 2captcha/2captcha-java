@@ -56,7 +56,7 @@ public class TwoCaptcha {
      */
     private boolean lastCaptchaHasCallback;
 
-    private String jsonResponseFormat = "1";
+    private int extendedResponse = 0;
 
     /**
      * Network client
@@ -80,10 +80,10 @@ public class TwoCaptcha {
         setApiKey(apiKey);
     }
 
-    public TwoCaptcha(String apiKey, String jsonRespose) {
+    public TwoCaptcha(String apiKey, int extendedResponse) {
         this();
         setApiKey(apiKey);
-        jsonResponseFormat = jsonRespose;
+        this.extendedResponse = extendedResponse;
     }
 
     /**
@@ -309,7 +309,7 @@ public class TwoCaptcha {
         Map<String, String> params = new HashMap<>();
         params.put("action", "get");
         params.put("id", id);
-        params.put("json", jsonResponseFormat);
+        params.put("json", String.valueOf(this.extendedResponse));
 
         String response = res(params);
 
@@ -379,7 +379,7 @@ public class TwoCaptcha {
      */
     private void sendAttachDefaultParams(Map<String, String> params) {
         params.put("key", apiKey);
-        params.put("json", jsonResponseFormat);
+        params.put("json", String.valueOf(this.extendedResponse));
 
         if (callback != null) {
             if (!params.containsKey("pingback")) {
@@ -416,4 +416,7 @@ public class TwoCaptcha {
         }
     }
 
+    public void setExtendedResponse(int extendedResponse) {
+        this.extendedResponse = extendedResponse;
+    }
 }

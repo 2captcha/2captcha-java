@@ -7,6 +7,7 @@ public class HCaptchaExample {
 
     public static void main(String[] args) {
         TwoCaptcha solver = new TwoCaptcha(args[0]);
+        solver.setExtendedResponse(1);
 
         HCaptcha captcha = new HCaptcha();
         captcha.setSiteKey("10000000-ffff-ffff-ffff-000000000001");
