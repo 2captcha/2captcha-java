@@ -359,7 +359,7 @@ friendlyCaptcha.setPageUrl("https://geizhals.de/455973138?fsean=5901747021356");
 ```
 
 ### MtCaptcha
-Use this method to solve FriendlyCaptcha and obtain a token to bypass the protection.
+Use this method to solve MtCaptcha and obtain a token to bypass the protection.
 
 ```java
 TwoCaptcha solver = new TwoCaptcha(args[0]);
@@ -369,7 +369,7 @@ mtCaptcha.setPageUrl("https://2captcha.com/demo/mtcaptcha");
 ```
 
 ### Tencent
-Use this method to solve FriendlyCaptcha and obtain a token to bypass the protection.
+Use this method to solve Tencent and obtain a token to bypass the protection.
 
 ```java
 TwoCaptcha solver = new TwoCaptcha(args[0]);
