@@ -1,7 +1,6 @@
 package examples;
 
 import com.twocaptcha.TwoCaptcha;
-import com.twocaptcha.captcha.FriendlyCaptcha;
 import com.twocaptcha.captcha.MtCaptcha;
 
 public class MtCaptchaExample {

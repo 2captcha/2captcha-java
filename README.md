@@ -39,6 +39,7 @@ Examples of API requests for different captcha types are available on the [Java 
     - [AmazonWaf](#amazonwaf)
     - [FriendlyCaptcha](#friendlycaptcha)
     - [MTCaptcha](#mtcaptcha)
+    - [Tencent](#tencent)
   - [Other methods](#other-methods)
     - [send / getResult](#send--getresult)
     - [balance](#balance)
@@ -363,8 +364,18 @@ Use this method to solve FriendlyCaptcha and obtain a token to bypass the protec
 ```java
 TwoCaptcha solver = new TwoCaptcha(args[0]);
 MtCaptcha mtCaptcha = new MtCaptcha();
-MtCaptcha.setSiteKey("MTPublic-KzqLY1cKH");
-MtCaptcha.setPageUrl("https://2captcha.com/demo/mtcaptcha");
+mtCaptcha.setSiteKey("MTPublic-KzqLY1cKH");
+mtCaptcha.setPageUrl("https://2captcha.com/demo/mtcaptcha");
+```
+
+### Tencent
+Use this method to solve FriendlyCaptcha and obtain a token to bypass the protection.
+
+```java
+TwoCaptcha solver = new TwoCaptcha(args[0]);
+Tencent tencent = new Tencent();
+tencent.setSiteKey("MTPublic-KzqLY1cKH");
+tencent.setPageUrl("https://2captcha.com/demo/mtcaptcha");
 ```
 
 ## Other methods
