@@ -18,7 +18,7 @@ public class FriendlyCaptchaTest extends AbstractWrapperTestCase {
         params.put("sitekey", "FCMST5VUMCBOCGQ9");
         params.put("pageurl", "https://geizhals.de/455973138?fsean=5901747021356");
         params.put("soft_id", "4581");
-        params.put("json", "1");
+        params.put("json", "0");
 
         checkIfCorrectParamsSendAndResultReturned(friendlyCaptcha, params);
     }

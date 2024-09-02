@@ -38,6 +38,7 @@ Examples of API requests for different captcha types are available on the [Java 
     - [Turnstile](#turnstile)
     - [AmazonWaf](#amazonwaf)
     - [FriendlyCaptcha](#friendlycaptcha)
+    - [MTCaptcha](#mtcaptcha)
   - [Other methods](#other-methods)
     - [send / getResult](#send--getresult)
     - [balance](#balance)
@@ -354,6 +355,16 @@ TwoCaptcha solver = new TwoCaptcha(args[0]);
 FriendlyCaptcha friendlyCaptcha = new FriendlyCaptcha();
 friendlyCaptcha.setSiteKey("FCMST5VUMCBOCGQ9");
 friendlyCaptcha.setPageUrl("https://geizhals.de/455973138?fsean=5901747021356");
+```
+
+### MtCaptcha
+Use this method to solve FriendlyCaptcha and obtain a token to bypass the protection.
+
+```java
+TwoCaptcha solver = new TwoCaptcha(args[0]);
+MtCaptcha mtCaptcha = new MtCaptcha();
+MtCaptcha.setSiteKey("MTPublic-KzqLY1cKH");
+MtCaptcha.setPageUrl("https://2captcha.com/demo/mtcaptcha");
 ```
 
 ## Other methods

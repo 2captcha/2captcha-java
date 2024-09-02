@@ -17,7 +17,7 @@ public class TurnstileTest extends AbstractWrapperTestCase {
         params.put("sitekey", "0x4AAAAAAAChNiVJM_WtShFf");
         params.put("pageurl", "https://ace.fusionist.io");
         params.put("soft_id", "4581");
-        params.put("json", "1");
+        params.put("json", "0");
 
         checkIfCorrectParamsSendAndResultReturned(captcha, params);
     }

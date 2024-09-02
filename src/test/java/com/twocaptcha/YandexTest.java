@@ -17,7 +17,7 @@ public class YandexTest extends AbstractWrapperTestCase {
         params.put("sitekey", "Y5Lh0tiycconMJGsFd3EbbuNKSp1yaZESUOIHfeV");
         params.put("pageurl", "https://rutube.ru");
         params.put("soft_id", "4581");
-        params.put("json", "1");
+        params.put("json", "0");
 
         checkIfCorrectParamsSendAndResultReturned(captcha, params);
     }
