@@ -260,30 +260,13 @@ public class TwoCaptcha {
     Object handleResponse(String response) throws ApiException {
         try {
             JSONObject jsonObject = new JSONObject(response);
-            /*
-            {"status" : 0, "request" : "CAPCHA_NOT_READY"}
-             */
             Object requestVal = jsonObject.get("request");
 
             if (requestVal.equals("CAPCHA_NOT_READY")) {
                 return null;
             }
-/*
-{
-  "request" : "ERROR_CAPTCHA_UNSOLVABLE",
-  "error_text" : "Workers could not solve the Captcha",
-  "status" : 0
-}
-------------------------------------------------------------
-{
-  "status" : 1,
-  "request" : {
-    "answer" : "0xaxaux0xaxakx0xaxaax0xax9mx0xax9cx0xkx8ex0xkx7qx0xkx7gx0xkx76x0xux6ix0xux5kx0xux5ax0xux50x0x18x4cx0x18x3ox0x18x3ex0x18x34x0x18x2qx0x18x2gx0x18x26x0x1ix26x0x1ix1sx0x1ix1ix0x1ix18x0x1ixux0x18x18x0x18x1ix0x18x1sx0x18x26x0x18x2gx0xux2gx0xkx2gx0xkxux0xuxux0xux18x0xux1ix0xux1sx0xux26x0xux2gx0xkx2gx0xux2gx0xux2qx0xux2gx_?_gAAAAABm0FAxnvAh4Wj8kqURR5srqmPmP837UlPay8dBcsK8i69GP2Cl43gf9AypBIrlUWemxKdThquHdRPnfNrQmtRAVRDD89CBTDnc6bN_rB0viLrkdhJe8hskqaRd_52ysg1jnPRW",
-    "challenge_id" : "97ccb9fd-443e-4647-b320-7bf65aea5b10"
-  }
-}
- */
-            return requestVal;
+
+            return jsonObject;
 
         } catch (JSONException exception) {
             if (response.equals("CAPCHA_NOT_READY")) {
