@@ -7,11 +7,10 @@ public class HCaptchaExample {
 
     public static void main(String[] args) {
         TwoCaptcha solver = new TwoCaptcha(args[0]);
-        solver.setExtendedResponse(1);
 
         HCaptcha captcha = new HCaptcha();
-        captcha.setSiteKey("10000000-ffff-ffff-ffff-000000000001");
-        captcha.setUrl("https://www.site.com/page/");
+        captcha.setSiteKey("c0421d06-b92e-47fc-ab9a-5caa43c04538");
+        captcha.setUrl("https://2captcha.com/demo/hcaptcha");
 
         try {
             solver.solve(captcha);
