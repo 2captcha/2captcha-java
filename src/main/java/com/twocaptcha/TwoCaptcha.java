@@ -257,7 +257,7 @@ public class TwoCaptcha {
         }
     }
 
-    Object handleResponse(String response) throws ApiException {
+    String handleResponse(String response) throws ApiException {
         try {
             JSONObject jsonObject = new JSONObject(response);
             Object requestVal = jsonObject.get("request");
@@ -266,7 +266,7 @@ public class TwoCaptcha {
                 return null;
             }
 
-            return jsonObject;
+            return jsonObject.toString();
 
         } catch (JSONException exception) {
             if (response.equals("CAPCHA_NOT_READY")) {
@@ -288,7 +288,7 @@ public class TwoCaptcha {
      * @return
      * @throws Exception
      */
-    public Object getResult(String id) throws Exception {
+    public String getResult(String id) throws Exception {
         Map<String, String> params = new HashMap<>();
         params.put("action", "get");
         params.put("id", id);
