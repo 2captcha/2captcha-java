@@ -355,7 +355,7 @@ Use this method to solve FriendlyCaptcha and obtain a token to bypass the protec
 TwoCaptcha solver = new TwoCaptcha(args[0]);
 FriendlyCaptcha friendlyCaptcha = new FriendlyCaptcha();
 friendlyCaptcha.setSiteKey("FCMST5VUMCBOCGQ9");
-friendlyCaptcha.setPageUrl("https://geizhals.de/455973138?fsean=5901747021356");
+friendlyCaptcha.setPageUrl("https://mysite.com/page/with/FriendlyCaptcha");
 ```
 
 ### MtCaptcha
