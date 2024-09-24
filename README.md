@@ -211,7 +211,8 @@ captcha.setProxy("HTTPS", "login:password@IP_address:PORT");
 ```
 
 ### hCaptcha
-Method to solve GeeTest puzzle captcha. Returns a set of tokens as JSON.
+Method to solve hCaptcha captcha. Returns a token.
+Use `setExtendedResponse` to get `respKey`  and `useragent` in captcha answer.
 
 ```java
 HCaptcha captcha = new HCaptcha();
@@ -374,8 +375,8 @@ Use this method to solve Tencent and obtain a token to bypass the protection.
 ```java
 TwoCaptcha solver = new TwoCaptcha(args[0]);
 Tencent tencent = new Tencent();
-tencent.setSiteKey("MTPublic-KzqLY1cKH");
-tencent.setPageUrl("https://2captcha.com/demo/mtcaptcha");
+tencent.setAppId("2092215077");
+tencent.setPageUrl("https://mysite.com/page/with/tencent");
 ```
 
 ## Other methods
