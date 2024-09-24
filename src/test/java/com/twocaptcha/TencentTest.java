@@ -10,12 +10,12 @@ public class TencentTest extends AbstractWrapperTestCase {
     public void testAllOptions() throws Exception {
         Tencent tencent = new Tencent();
         tencent.setAppId("2092215077");
-        tencent.setPageUrl("http://lcec.lclog.cn/cargo/NewCargotracking?blno=BANR01XMHB0004&selectstate=BLNO");
+        tencent.setPageUrl("https://mysite.com/page/with/tencent");
 
         Map<String, String> params = new HashMap<>();
         params.put("method", "tencent");
         params.put("app_id", "2092215077");
-        params.put("pageurl", "http://lcec.lclog.cn/cargo/NewCargotracking?blno=BANR01XMHB0004&selectstate=BLNO");
+        params.put("pageurl", "https://mysite.com/page/with/tencent");
         params.put("soft_id", "4581");
         params.put("json", "0");
 

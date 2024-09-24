@@ -10,7 +10,7 @@ public class TencentExample {
 
         Tencent tencent = new Tencent();
         tencent.setAppId("2092215077");
-        tencent.setPageUrl("http://lcec.lclog.cn/cargo/NewCargotracking?blno=BANR01XMHB0004&selectstate=BLNO");
+        tencent.setPageUrl("https://mysite.com/page/with/tencent");
 
         try {
             solver.solve(tencent);
