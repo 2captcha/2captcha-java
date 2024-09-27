@@ -6,7 +6,7 @@ import com.twocaptcha.captcha.Text;
 public class TextExample {
 
     public static void main(String[] args) {
-        TwoCaptcha solver = new TwoCaptcha("YOUR_API_KEY");
+        TwoCaptcha solver = new TwoCaptcha(args[0]);
 
         Text captcha = new Text("If tomorrow is Saturday, what day is today?");
 

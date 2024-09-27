@@ -6,7 +6,7 @@ import com.twocaptcha.captcha.Coordinates;
 public class CoordinatesExample {
 
     public static void main(String[] args) {
-        TwoCaptcha solver = new TwoCaptcha("YOUR_API_KEY");
+        TwoCaptcha solver = new TwoCaptcha(args[0]);
 
         Coordinates captcha = new Coordinates("src/main/resources/grid.jpg");
 

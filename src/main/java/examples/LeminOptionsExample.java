@@ -6,7 +6,7 @@ import com.twocaptcha.captcha.Lemin;
 public class LeminOptionsExample {
 
     public static void main(String[] args) {
-        TwoCaptcha solver = new TwoCaptcha("YOUR_API_KEY");
+        TwoCaptcha solver = new TwoCaptcha(args[0]);
         solver.setSoftId(0);
         solver.setDefaultTimeout(120);
         solver.setRecaptchaTimeout(600);

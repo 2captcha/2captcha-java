@@ -31,7 +31,7 @@ public class RotateTest extends AbstractWrapperTestCase {
         params.put("textinstructions", "Put the images in the correct way up");
         params.put("body", base64EncodedImage);
         params.put("soft_id", "4581");
-
+        params.put("json", "0");
 
         checkIfCorrectParamsSendAndResultReturned(captcha, params);
     }

@@ -23,6 +23,7 @@ public class FunCaptchaTest extends AbstractWrapperTestCase {
         params.put("userAgent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.61 Safari/537.36");
         params.put("data[anyKey]", "anyStringValue");
         params.put("soft_id", "4581");
+        params.put("json", "0");
 
         checkIfCorrectParamsSendAndResultReturned(captcha, params);
     }

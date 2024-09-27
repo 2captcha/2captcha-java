@@ -6,7 +6,7 @@ import com.twocaptcha.captcha.GeeTest;
 public class GeeTestExample {
 
     public static void main(String[] args) {
-        TwoCaptcha solver = new TwoCaptcha("YOUR_API_KEY");
+        TwoCaptcha solver = new TwoCaptcha(args[0]);
 
         GeeTest captcha = new GeeTest();
         captcha.setGt("f2ae6cadcf7886856696502e1d55e00c");

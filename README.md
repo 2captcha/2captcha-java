@@ -9,7 +9,7 @@
 
 # JAVA Module for 2Captcha API (captcha solver)
 The easiest way to quickly integrate [2Captcha] into your code to automate solving of any types of captcha.
-Examples of API requests for different captcha types are available on the [Java captcha solver](https://2captcha.com/lang/java) page.
+Examples of API requests for different captcha types are available on the [Java captcha solver] page.
 
 - [JAVA Module for 2Captcha API (captcha solver)](#java-module-for-2captcha-api-captcha-solver)
   - [Installation](#installation)
@@ -37,6 +37,9 @@ Examples of API requests for different captcha types are available on the [Java 
     - [Lemin](#lemin)
     - [Turnstile](#turnstile)
     - [AmazonWaf](#amazonwaf)
+    - [Friendly Captcha](#friendly-captcha)
+    - [MTCaptcha](#mtcaptcha)
+    - [Tencent](#tencent)
   - [Other methods](#other-methods)
     - [send / getResult](#send--getresult)
     - [balance](#balance)
@@ -64,20 +67,29 @@ solver.setCallback("https://your.site/result-receiver");
 solver.setDefaultTimeout(120);
 solver.setRecaptchaTimeout(600);
 solver.setPollingInterval(10);
+solver.setExtendedResponse(1);
 ```
 
 ### TwoCaptcha instance options
 
-| Option           | Default value | Description                                                                                                                                        |
-| ---------------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| softId           | -             | your software ID obtained after publishing in [2captcha sofware catalog]                                                                           |
-| callback         | -             | URL of your web-sever that receives the captcha recognition result. The URl should be first registered in [pingback settings] of your account      |
-| defaultTimeout   | 120           | Polling timeout in seconds for all captcha types except ReCaptcha. Defines how long the module tries to get the answer from `res.php` API endpoint |
-| recaptchaTimeout | 600           | Polling timeout for ReCaptcha in seconds. Defines how long the module tries to get the answer from `res.php` API endpoint                          |
-| pollingInterval  | 10            | Interval in seconds between requests to `res.php` API endpoint, setting values less than 5 seconds is not recommended                              |
+| Option           | Default value| Description                                                                                                                                        |
+|------------------| ------------ |----------------------------------------------------------------------------------------------------------------------------------------------------|
+| host             |`2captcha.com`| API server. You can set it to `rucaptcha.com` if your account is registered there                                                                  |
+| softId           | 4581         | your software ID obtained after publishing in [2captcha sofware catalog]                                                                           |
+| callback         | -            | URL of your web-sever that receives the captcha recognition result. The URl should be first registered in [pingback settings] of your account      |
+| defaultTimeout   | 120          | Polling timeout in seconds for all captcha types except ReCaptcha. Defines how long the module tries to get the answer from `res.php` API endpoint |
+| recaptchaTimeout | 600          | Polling timeout for ReCaptcha in seconds. Defines how long the module tries to get the answer from `res.php` API endpoint                          |
+| pollingInterval  | 10           | Interval in seconds between requests to `res.php` API endpoint, setting values less than 5 seconds is not recommended                              |
+| extendedResponse | 0            | Json or String format response from `res.php` API endpoint, extendedResponse = 1 returns JSON format response                                      |
 
->  **IMPORTANT:** once *callback URL* is defined for `TwoCaptcha` instance with `setCallback`, all methods return only the captcha ID and DO NOT poll the API to get the result. The result will be sent to the callback URL.
+>  [!IMPORTANT] once *callback URL* is defined for `TwoCaptcha` instance with `setCallback`, all methods return only the captcha ID and DO NOT poll the API to get the result. The result will be sent to the callback URL.
 To get the answer manually use [getResult method](#send--getresult)
+
+> [!TIP]
+> Use the `extendedResponse(1)` setting to obtain an extended response for the captcha. When using `extendedResponse(1)`, the response will be presented as a `JSON` string. Utilizing the extended response `extendedResponse(1)` will be helpful when solving captchas such as [hCaptcha](#hcaptcha) and [ClickCaptcha](#clickcaptcha). When using `extendedResponse(1)` for hCaptcha, the response will include additional fields, such as `respKe`y and `useragent`.<br>
+> Default answer for hCaptcha answer looks like this: `P1_eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9...`<br>
+> An extended response using `extendedResponse(1)` for an hCaptcha answer looks like this: `{"request":"P1_eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9...","respKey":"E0_eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9...","useragent":"Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.6478.127 Safari/537.36","status":1}`
+
 
 ## Solve captcha
 When you submit any image-based captcha use can provide additional options to help 2captcha workers to solve it properly.
@@ -206,12 +218,13 @@ captcha.setProxy("HTTPS", "login:password@IP_address:PORT");
 ```
 
 ### hCaptcha
-Method to solve GeeTest puzzle captcha. Returns a set of tokens as JSON.
+Method to solve hCaptcha captcha. Returns a token.
+Use `setExtendedResponse` to get `respKey` and `useragent` in captcha answer.
 
 ```java
 HCaptcha captcha = new HCaptcha();
-captcha.setSiteKey("10000000-ffff-ffff-ffff-000000000001");
-captcha.setUrl("https://www.site.com/page/");
+captcha.setSiteKey("c0421d06-b92e-47fc-ab9a-5caa43c04538");
+captcha.setUrl("https://2captcha.com/demo/hcaptcha");
 captcha.setProxy("HTTPS", "login:password@IP_address:PORT");
 ```
 
@@ -293,7 +306,7 @@ captcha.setHintText("Put the images in the correct way up");
 This method can be used to solve a audio captcha
 
 ```java
-TwoCaptcha solver = new TwoCaptcha("YOUR_API_KEY");
+TwoCaptcha solver = new TwoCaptcha(args[0]);
 byte[] bytes = Files.readAllBytes(Paths.get("src/main/resources/audio-en.mp3"));
 String base64EncodedImage = Base64.getEncoder().encodeToString(bytes);
 Audio captcha = new Audio();
@@ -304,7 +317,7 @@ captcha.setBase64(base64EncodedImage);
 Use this method to solve Yandex and obtain a token to bypass the protection.
 
 ```java
-TwoCaptcha solver = new TwoCaptcha("YOUR_API_KEY");
+TwoCaptcha solver = new TwoCaptcha(args[0]);
 Yandex captcha = new Yandex();
 captcha.setSiteKey("Y5Lh0tiycconMJGsFd3EbbuNKSp1yaZESUOIHfeV");
 captcha.setUrl("https://rutube.ru");
@@ -314,7 +327,7 @@ captcha.setUrl("https://rutube.ru");
 Use this method to solve Lemin and obtain a token to bypass the protection.
 
 ```java
-TwoCaptcha solver = new TwoCaptcha("YOUR_API_KEY");
+TwoCaptcha solver = new TwoCaptcha(args[0]);
 Lemin captcha = new Lemin();      
 captcha.setСaptchaId("CROPPED_d3d4d56_73ca4008925b4f83a8bed59c2dd0df6d");
 captcha.setUrl("http://sat2.aksigorta.com.tr");
@@ -325,7 +338,7 @@ captcha.setApiServer("api.leminnow.com");
 Use this method to solve Turnstile and obtain a token to bypass the protection.
 
 ```java
-TwoCaptcha solver = new TwoCaptcha("YOUR_API_KEY");
+TwoCaptcha solver = new TwoCaptcha(args[0]);
 Turnstile captcha = new Turnstile();
 captcha.setSiteKey("0x4AAAAAAAChNiVJM_WtShFf");
 captcha.setUrl("https://ace.fusionist.io");
@@ -335,12 +348,42 @@ captcha.setUrl("https://ace.fusionist.io");
 Use this method to solve AmazonWaf and obtain a token to bypass the protection.
 
 ```java
-TwoCaptcha solver = new TwoCaptcha("YOUR_API_KEY");
+TwoCaptcha solver = new TwoCaptcha(args[0]);
 AmazonWaf captcha = new AmazonWaf();
 captcha.setSiteKey("AQIDAHjcYu/GjX+QlghicBgQ/7bFaQZ+m5FKCMDnO+vTbNg96AF5H1K/siwSLK7RfstKtN5bAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglg");
 captcha.setUrl("https://non-existent-example.execute-api.us-east-1.amazonaws.com");
 captcha.setIV("test_iv");
 captcha.setContext("test_context");
+```
+
+### Friendly Captcha
+Use this method to solve Friendly Captcha and obtain a token to bypass the protection.
+
+```java
+TwoCaptcha solver = new TwoCaptcha(args[0]);
+FriendlyCaptcha friendlyCaptcha = new FriendlyCaptcha();
+friendlyCaptcha.setSiteKey("FCMST5VUMCBOCGQ9");
+friendlyCaptcha.setPageUrl("https://mysite.com/page/with/FriendlyCaptcha");
+```
+
+### MtCaptcha
+Use this method to solve MtCaptcha and obtain a token to bypass the protection.
+
+```java
+TwoCaptcha solver = new TwoCaptcha(args[0]);
+MtCaptcha mtCaptcha = new MtCaptcha();
+mtCaptcha.setSiteKey("MTPublic-KzqLY1cKH");
+mtCaptcha.setPageUrl("https://2captcha.com/demo/mtcaptcha");
+```
+
+### Tencent
+Use this method to solve Tencent and obtain a token to bypass the protection.
+
+```java
+TwoCaptcha solver = new TwoCaptcha(args[0]);
+Tencent tencent = new Tencent();
+tencent.setAppId("2092215077");
+tencent.setPageUrl("https://mysite.com/page/with/tencent");
 ```
 
 ## Other methods
@@ -423,3 +466,4 @@ The graphics and trademarks included in this repository are not covered by the M
 [Pingback settings]: https://2captcha.com/setting/pingback
 [Post options]: https://2captcha.com/2captcha-api#normal_post
 [List of supported languages]: https://2captcha.com/2captcha-api#language
+[Java captcha solver]: https://2captcha.com/lang/java

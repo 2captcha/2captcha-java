@@ -6,7 +6,7 @@ import com.twocaptcha.captcha.AmazonWaf;
 public class AmazonWafExample {
 
     public static void main(String[] args) {
-        TwoCaptcha solver = new TwoCaptcha("YOUR_API_KEY");
+        TwoCaptcha solver = new TwoCaptcha(args[0]);
 
         AmazonWaf captcha = new AmazonWaf();
         captcha.setSiteKey("AQIDAHjcYu/GjX+QlghicBgQ/7bFaQZ+m5FKCMDnO+vTbNg96AF5H1K/siwSLK7RfstKtN5bAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglg");

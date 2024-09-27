@@ -6,7 +6,7 @@ import com.twocaptcha.captcha.KeyCaptcha;
 public class KeyCaptchaExample {
 
     public static void main(String[] args) {
-        TwoCaptcha solver = new TwoCaptcha("YOUR_API_KEY");
+        TwoCaptcha solver = new TwoCaptcha(args[0]);
 
         KeyCaptcha captcha = new KeyCaptcha();
         captcha.setUserId(10);

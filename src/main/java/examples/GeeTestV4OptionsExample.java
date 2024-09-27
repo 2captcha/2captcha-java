@@ -6,7 +6,7 @@ import com.twocaptcha.captcha.GeeTestV4;
 public class GeeTestV4OptionsExample {
 
     public static void main(String[] args) {
-        TwoCaptcha solver = new TwoCaptcha("YOUR_API_KEY");
+        TwoCaptcha solver = new TwoCaptcha(args[0]);
         solver.setHost("rucaptcha.com");
         solver.setSoftId(0);
         solver.setDefaultTimeout(120);

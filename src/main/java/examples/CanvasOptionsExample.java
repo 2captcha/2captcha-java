@@ -7,7 +7,7 @@ import com.twocaptcha.captcha.Canvas;
 public class CanvasOptionsExample {
 
     public static void main(String[] args) {
-        TwoCaptcha solver = new TwoCaptcha("YOUR_API_KEY");
+        TwoCaptcha solver = new TwoCaptcha(args[0]);
         solver.setHost("rucaptcha.com");
         solver.setSoftId(0);
         solver.setDefaultTimeout(120);

@@ -23,6 +23,7 @@ public class ReCaptchaTest extends AbstractWrapperTestCase {
         params.put("enterprise", "1");
         params.put("action", "verify");
         params.put("soft_id", "4581");
+        params.put("json", "0");
 
         checkIfCorrectParamsSendAndResultReturned(captcha, params);
     }
@@ -45,6 +46,7 @@ public class ReCaptchaTest extends AbstractWrapperTestCase {
         params.put("action", "verify");
         params.put("min_score", "0.3");
         params.put("soft_id", "4581");
+        params.put("json", "0");
 
         checkIfCorrectParamsSendAndResultReturned(captcha, params);
     }

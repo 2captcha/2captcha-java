@@ -6,7 +6,7 @@ import com.twocaptcha.captcha.Lemin;
 public class LeminExample {
 
     public static void main(String[] args) {
-        TwoCaptcha solver = new TwoCaptcha("YOUR_API_KEY");
+        TwoCaptcha solver = new TwoCaptcha(args[0]);
 
         Lemin captcha = new Lemin();      
         captcha.setСaptchaId("CROPPED_d3d4d56_73ca4008925b4f83a8bed59c2dd0df6d");
