@@ -40,6 +40,7 @@ Examples of API requests for different captcha types are available on the [Java 
     - [Friendly Captcha](#friendly-captcha)
     - [MTCaptcha](#mtcaptcha)
     - [Tencent](#tencent)
+    - [Cutcaptcha](#cutcaptcha)
   - [Other methods](#other-methods)
     - [send / getResult](#send--getresult)
     - [balance](#balance)
@@ -384,6 +385,16 @@ TwoCaptcha solver = new TwoCaptcha(args[0]);
 Tencent tencent = new Tencent();
 tencent.setAppId("2092215077");
 tencent.setPageUrl("https://mysite.com/page/with/tencent");
+```
+### Cutcaptcha
+Use this method to solve Cutcaptcha and obtain a token to bypass the protection.
+
+```java
+TwoCaptcha solver = new TwoCaptcha(args[0]);
+Cutcaptcha cutcaptcha = new Cutcaptcha();
+cutcaptcha.setMiseryKey("a1488b66da00bf332a1488993a5443c79047e752");
+cutcaptcha.setUrl("https://filecrypt.co/Container/237D4D0995.html");
+cutcaptcha.setDataApiKey("SAb83IIB");
 ```
 
 ## Other methods
