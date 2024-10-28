@@ -82,7 +82,8 @@ solver.setExtendedResponse(1);
 | pollingInterval  | 10           | Interval in seconds between requests to `res.php` API endpoint, setting values less than 5 seconds is not recommended                              |
 | extendedResponse | 0            | Json or String format response from `res.php` API endpoint, extendedResponse = 1 returns JSON format response                                      |
 
->  [!IMPORTANT] once *callback URL* is defined for `TwoCaptcha` instance with `setCallback`, all methods return only the captcha ID and DO NOT poll the API to get the result. The result will be sent to the callback URL.
+>  [!IMPORTANT]
+>  Once *callback URL* is defined for `TwoCaptcha` instance with `setCallback`, all methods return only the captcha ID and DO NOT poll the API to get the result. The result will be sent to the callback URL.
 To get the answer manually use [getResult method](#send--getresult)
 
 > [!TIP]
