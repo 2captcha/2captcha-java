@@ -41,6 +41,7 @@ Examples of API requests for different captcha types are available on the [Java 
     - [MTCaptcha](#mtcaptcha)
     - [Tencent](#tencent)
     - [Cutcaptcha](#cutcaptcha)
+    - [AtbCAPTCHA](#atbcaptcha)
   - [Other methods](#other-methods)
     - [send / getResult](#send--getresult)
     - [balance](#balance)
@@ -395,6 +396,16 @@ Cutcaptcha cutcaptcha = new Cutcaptcha();
 cutcaptcha.setMiseryKey("a1488b66da00bf332a1488993a5443c79047e752");
 cutcaptcha.setUrl("https://filecrypt.co/Container/237D4D0995.html");
 cutcaptcha.setDataApiKey("SAb83IIB");
+```
+
+### AtbCAPTCHA
+Use this method to solve AtbCAPTCHA and obtain a token to bypass the protection.
+
+```java
+AtbCAPTCHA captcha = new AtbCAPTCHA();
+captcha.setAppId("af23e041b22d000a11e22a230fa8991c");
+captcha.setPageUrl("https://www.playzone.vip/");
+captcha.setApiServer("https://cap.aisecurius.com");
 ```
 
 ## Other methods
