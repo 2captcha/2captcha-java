@@ -42,6 +42,7 @@ Examples of API requests for different captcha types are available on the [Java 
     - [Tencent](#tencent)
     - [Cutcaptcha](#cutcaptcha)
     - [AtbCAPTCHA](#atbcaptcha)
+    - [Cybersiara](#cybersiara)
   - [Other methods](#other-methods)
     - [send / getResult](#send--getresult)
     - [balance](#balance)
