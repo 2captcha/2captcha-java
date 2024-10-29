@@ -408,6 +408,16 @@ captcha.setPageUrl("https://www.playzone.vip/");
 captcha.setApiServer("https://cap.aisecurius.com");
 ```
 
+### Cybersiara
+Use this method to solve Cybersiara and obtain a token to bypass the protection.
+
+```java
+Cybersiara captcha = new Cybersiara();
+captcha.setMasterUrlId("tpjOCKjjpdzv3d8Ub2E9COEWKt1vl1Mv");
+captcha.setUrl("https://demo.mycybersiara.com/");
+captcha.setUserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36");
+```
+
 ## Other methods
 
 ### send / getResult
