@@ -43,6 +43,7 @@ Examples of API requests for different captcha types are available on the [Java 
     - [Cutcaptcha](#cutcaptcha)
     - [AtbCAPTCHA](#atbcaptcha)
     - [Cybersiara](#cybersiara)
+    - [DataDome](#datadome)
   - [Other methods](#other-methods)
     - [send / getResult](#send--getresult)
     - [balance](#balance)
@@ -417,6 +418,17 @@ Cybersiara captcha = new Cybersiara();
 captcha.setMasterUrlId("tpjOCKjjpdzv3d8Ub2E9COEWKt1vl1Mv");
 captcha.setUrl("https://demo.mycybersiara.com/");
 captcha.setUserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36");
+```
+
+### DataDome
+Use this method to solve DataDome and obtain a token to bypass the protection.
+
+```java
+DataDome captcha = new DataDome();
+captcha.setCaptchaUrl("https://geo.captcha-delivery.com/captcha/?initialCid=AHrlqAAA...P~XFrBVptk&t=fe&referer=https%3A%2F%2Fhexample.com&s=45239&e=c538be..c510a00ea");
+captcha.setUrl("https://example.com/");
+captcha.setUserAgent("Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Mobile Safari/537.3");
+captcha.setProxy("HTTPS", "login:password@IP_address:PORT");
 ```
 
 ## Other methods
