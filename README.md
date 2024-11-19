@@ -25,7 +25,6 @@ Examples of API requests for different captcha types are available on the [Java 
     - [FunCaptcha](#funcaptcha)
     - [GeeTest](#geetest)
     - [GeeTestV4](#geetestv4)
-    - [hCaptcha](#hcaptcha)
     - [KeyCaptcha](#keycaptcha)
     - [Capy](#capy)
     - [Grid](#grid)
@@ -87,10 +86,7 @@ solver.setExtendedResponse(1);
 To get the answer manually use [getResult method](#send--getresult)
 
 > [!TIP]
-> Use the `extendedResponse(1)` setting to obtain an extended response for the captcha. When using `extendedResponse(1)`, the response will be presented as a `JSON` string. Utilizing the extended response `extendedResponse(1)` will be helpful when solving captchas such as [hCaptcha](#hcaptcha) and [ClickCaptcha](#clickcaptcha). When using `extendedResponse(1)` for hCaptcha, the response will include additional fields, such as `respKe`y and `useragent`.<br>
-> Default answer for hCaptcha answer looks like this: `P1_eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9...`<br>
-> An extended response using `extendedResponse(1)` for an hCaptcha answer looks like this: `{"request":"P1_eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9...","respKey":"E0_eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9...","useragent":"Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.6478.127 Safari/537.36","status":1}`
-
+> Use the `extendedResponse(1)` setting to obtain an extended response for the captcha. When using `extendedResponse(1)`, the response will be presented as a `JSON` string. Utilizing the extended response `extendedResponse(1)` will be helpful when solving captchas such as [ClickCaptcha](#clickcaptcha). 
 
 ## Solve captcha
 When you submit any image-based captcha use can provide additional options to help 2captcha workers to solve it properly.
@@ -215,17 +211,6 @@ captcha.setCaptchaId("72bf15796d0b69c43867452fea615052");
 captcha.setApiServer("api-na.geetest.com");
 captcha.setChallenge("12345678abc90123d45678ef90123a456b");
 captcha.setUrl("https://mysite.com/captcha.html");
-captcha.setProxy("HTTPS", "login:password@IP_address:PORT");
-```
-
-### hCaptcha
-Method to solve hCaptcha captcha. Returns a token.
-Use `setExtendedResponse` to get `respKey` and `useragent` in captcha answer.
-
-```java
-HCaptcha captcha = new HCaptcha();
-captcha.setSiteKey("c0421d06-b92e-47fc-ab9a-5caa43c04538");
-captcha.setUrl("https://2captcha.com/demo/hcaptcha");
 captcha.setProxy("HTTPS", "login:password@IP_address:PORT");
 ```
 
@@ -414,7 +399,7 @@ solver.report(captcha.getId(), false); // captcha solved incorrectly
 ```
 
 ## Proxies
-You can pass your proxy as an additional argument for methods: recaptcha, funcaptcha, geetest, geetest v4, hcaptcha, keycaptcha, capy puzzle, lemin, turnstile, amazon waf and etc. The proxy will be forwarded to the API to solve the captcha.
+You can pass your proxy as an additional argument for methods: recaptcha, funcaptcha, geetest, geetest v4, keycaptcha, capy puzzle, lemin, turnstile, amazon waf and etc. The proxy will be forwarded to the API to solve the captcha.
 
 We have our own proxies that we can offer you. [Buy residential proxies](https://2captcha.com/proxy/residential-proxies) for avoid restrictions and blocks. [Quick start](https://2captcha.com/proxy?openAddTrafficModal=true).
 
