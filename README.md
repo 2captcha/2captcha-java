@@ -42,7 +42,7 @@ Examples of API requests for different captcha types are available on the [Java 
     - [Tencent](#tencent)
     - [Cutcaptcha](#cutcaptcha)
     - [AtbCAPTCHA](#atbcaptcha)
-    - [Cybersiara](#cybersiara)
+    - [CyberSiARA](#cybersiara)
     - [DataDome](#datadome)
   - [Other methods](#other-methods)
     - [send / getResult](#send--getresult)
@@ -410,7 +410,7 @@ captcha.setPageUrl("https://www.playzone.vip/");
 captcha.setApiServer("https://cap.aisecurius.com");
 ```
 
-### Cybersiara
+### CyberSiARA
 Use this method to solve Cybersiara and obtain a token to bypass the protection.
 
 ```java
