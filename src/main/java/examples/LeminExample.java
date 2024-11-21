@@ -10,7 +10,7 @@ public class LeminExample {
 
         Lemin captcha = new Lemin();      
         captcha.setСaptchaId("CROPPED_d3d4d56_73ca4008925b4f83a8bed59c2dd0df6d");
-        captcha.setUrl("https://mysite.com/page/with/FriendlyCaptcha");
+        captcha.setUrl("https://mysite.com/page/with/LeminCaptcha");
         captcha.setApiServer("api.leminnow.com");
 
         try {
