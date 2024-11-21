@@ -9,7 +9,7 @@
     <version>1.2.0</version>
 
     <name>2captcha-java</name>
-    <description>Java library for easy integration with the API of 2captcha captcha solving service to bypass recaptcha, hcaptcha, funcaptcha, geetest and solve any other captchas.</description>
+    <description>Java library for easy integration with the API of 2captcha captcha solving service to bypass recaptcha, funcaptcha, geetest and solve any other captchas.</description>
     <url>https://2captcha.com/</url>
 
     <licenses>

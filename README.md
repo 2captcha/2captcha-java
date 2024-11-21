@@ -39,6 +39,10 @@ Examples of API requests for different captcha types are available on the [Java 
     - [Friendly Captcha](#friendly-captcha)
     - [MTCaptcha](#mtcaptcha)
     - [Tencent](#tencent)
+    - [Cutcaptcha](#cutcaptcha)
+    - [AtbCAPTCHA](#atbcaptcha)
+    - [CyberSiARA](#cybersiara)
+    - [DataDome](#datadome)
   - [Other methods](#other-methods)
     - [send / getResult](#send--getresult)
     - [balance](#balance)
@@ -316,7 +320,7 @@ Use this method to solve Lemin and obtain a token to bypass the protection.
 TwoCaptcha solver = new TwoCaptcha(args[0]);
 Lemin captcha = new Lemin();      
 captcha.setСaptchaId("CROPPED_d3d4d56_73ca4008925b4f83a8bed59c2dd0df6d");
-captcha.setUrl("http://sat2.aksigorta.com.tr");
+captcha.setUrl("https://mysite.com/page/with/LeminCaptcha");
 captcha.setApiServer("api.leminnow.com");
 ```
 
@@ -370,6 +374,47 @@ TwoCaptcha solver = new TwoCaptcha(args[0]);
 Tencent tencent = new Tencent();
 tencent.setAppId("2092215077");
 tencent.setPageUrl("https://mysite.com/page/with/tencent");
+```
+### Cutcaptcha
+Use this method to solve Cutcaptcha and obtain a token to bypass the protection.
+
+```java
+TwoCaptcha solver = new TwoCaptcha(args[0]);
+Cutcaptcha cutcaptcha = new Cutcaptcha();
+cutcaptcha.setMiseryKey("a1488b66da00bf332a1488993a5443c79047e752");
+cutcaptcha.setUrl("https://filecrypt.co/Container/237D4D0995.html");
+cutcaptcha.setDataApiKey("SAb83IIB");
+```
+
+### AtbCAPTCHA
+Use this method to solve AtbCAPTCHA and obtain a token to bypass the protection.
+
+```java
+AtbCAPTCHA captcha = new AtbCAPTCHA();
+captcha.setAppId("af23e041b22d000a11e22a230fa8991c");
+captcha.setPageUrl("https://www.playzone.vip/");
+captcha.setApiServer("https://cap.aisecurius.com");
+```
+
+### CyberSiARA
+Use this method to solve Cybersiara and obtain a token to bypass the protection.
+
+```java
+Cybersiara captcha = new Cybersiara();
+captcha.setMasterUrlId("tpjOCKjjpdzv3d8Ub2E9COEWKt1vl1Mv");
+captcha.setUrl("https://demo.mycybersiara.com/");
+captcha.setUserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36");
+```
+
+### DataDome
+Use this method to solve DataDome and obtain a token to bypass the protection.
+
+```java
+DataDome captcha = new DataDome();
+captcha.setCaptchaUrl("https://geo.captcha-delivery.com/captcha/?initialCid=AHrlqAAA...P~XFrBVptk&t=fe&referer=https%3A%2F%2Fhexample.com&s=45239&e=c538be..c510a00ea");
+captcha.setUrl("https://example.com/");
+captcha.setUserAgent("Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Mobile Safari/537.3");
+captcha.setProxy("HTTPS", "login:password@IP_address:PORT");
 ```
 
 ## Other methods

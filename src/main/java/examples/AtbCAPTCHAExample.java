@@ -1,17 +1,17 @@
 package examples;
 
 import com.twocaptcha.TwoCaptcha;
-import com.twocaptcha.captcha.Lemin;
+import com.twocaptcha.captcha.AtbCAPTCHA;
 
-public class LeminExample {
+public class AtbCAPTCHAExample {
 
     public static void main(String[] args) {
         TwoCaptcha solver = new TwoCaptcha(args[0]);
 
-        Lemin captcha = new Lemin();      
-        captcha.setСaptchaId("CROPPED_d3d4d56_73ca4008925b4f83a8bed59c2dd0df6d");
-        captcha.setUrl("https://mysite.com/page/with/LeminCaptcha");
-        captcha.setApiServer("api.leminnow.com");
+        AtbCAPTCHA captcha = new AtbCAPTCHA();
+        captcha.setAppId("af23e041b22d000a11e22a230fa8991c");
+        captcha.setPageUrl("https://www.playzone.vip/");
+        captcha.setApiServer("https://cap.aisecurius.com");
 
         try {
             solver.solve(captcha);

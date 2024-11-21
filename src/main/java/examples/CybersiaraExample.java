@@ -1,17 +1,17 @@
 package examples;
 
 import com.twocaptcha.TwoCaptcha;
-import com.twocaptcha.captcha.Lemin;
+import com.twocaptcha.captcha.Cybersiara;
 
-public class LeminExample {
+public class CybersiaraExample {
 
     public static void main(String[] args) {
         TwoCaptcha solver = new TwoCaptcha(args[0]);
 
-        Lemin captcha = new Lemin();      
-        captcha.setСaptchaId("CROPPED_d3d4d56_73ca4008925b4f83a8bed59c2dd0df6d");
-        captcha.setUrl("https://mysite.com/page/with/LeminCaptcha");
-        captcha.setApiServer("api.leminnow.com");
+        Cybersiara captcha = new Cybersiara();
+        captcha.setMasterUrlId("tpjOCKjjpdzv3d8Ub2E9COEWKt1vl1Mv");
+        captcha.setUrl("https://demo.mycybersiara.com/");
+        captcha.setUserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36");
 
         try {
             solver.solve(captcha);
