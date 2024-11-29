@@ -20,27 +20,27 @@ Examples of API requests for different captcha types are available on the [Java 
     - [Basic example](#basic-example)
     - [Normal Captcha](#normal-captcha)
     - [Text Captcha](#text-captcha)
-    - [ReCaptcha v2](#recaptcha-v2)
-    - [ReCaptcha v3](#recaptcha-v3)
+    - [reCAPTCHA v2](#recaptcha-v2)
+    - [reCAPTCHA v3](#recaptcha-v3)
     - [FunCaptcha](#funcaptcha)
     - [GeeTest](#geetest)
-    - [GeeTestV4](#geetestv4)
+    - [GeeTest v4](#geetest-v4)
     - [KeyCaptcha](#keycaptcha)
     - [Capy](#capy)
     - [Grid](#grid)
     - [Canvas](#canvas)
     - [ClickCaptcha](#clickcaptcha)
     - [Rotate](#rotate)
-    - [Audio](#audio)
+    - [Audio Captcha](#audio-captcha)
     - [Yandex](#yandex)
-    - [Lemin](#lemin)
-    - [Turnstile](#turnstile)
-    - [AmazonWaf](#amazonwaf)
+    - [Lemin Cropped Captcha](#lemin-cropped-captcha)
+    - [Cloudflare Turnstile](#cloudflare-turnstile)
+    - [Amazon WAF](#amazon-waf)
     - [Friendly Captcha](#friendly-captcha)
     - [MTCaptcha](#mtcaptcha)
     - [Tencent](#tencent)
     - [Cutcaptcha](#cutcaptcha)
-    - [AtbCAPTCHA](#atbcaptcha)
+    - [atbCAPTCHA](#atbcaptcha)
     - [CyberSiARA](#cybersiara)
     - [DataDome](#datadome)
   - [Other methods](#other-methods)
@@ -49,6 +49,7 @@ Examples of API requests for different captcha types are available on the [Java 
     - [report](#report)
   - [Proxies](#proxies)
   - [Error handling](#error-handling)
+  - [Examples](#examples)
 - [Get in touch](#get-in-touch)
 - [Join the team 👪](#join-the-team-)
 - [License](#license)
@@ -80,10 +81,10 @@ solver.setExtendedResponse(1);
 | host             |`2captcha.com`| API server. You can set it to `rucaptcha.com` if your account is registered there                                                                  |
 | softId           | 4581         | your software ID obtained after publishing in [2captcha sofware catalog]                                                                           |
 | callback         | -            | URL of your web-sever that receives the captcha recognition result. The URl should be first registered in [pingback settings] of your account      |
-| defaultTimeout   | 120          | Polling timeout in seconds for all captcha types except ReCaptcha. Defines how long the module tries to get the answer from `res.php` API endpoint |
-| recaptchaTimeout | 600          | Polling timeout for ReCaptcha in seconds. Defines how long the module tries to get the answer from `res.php` API endpoint                          |
+| defaultTimeout   | 120          | Polling timeout in seconds for all captcha types except reCAPTCHA. Defines how long the module tries to get the answer from `res.php` API endpoint |
+| recaptchaTimeout | 600          | Polling timeout for reCAPTCHA in seconds. Defines how long the module tries to get the answer from `res.php` API endpoint                          |
 | pollingInterval  | 10           | Interval in seconds between requests to `res.php` API endpoint, setting values less than 5 seconds is not recommended                              |
-| extendedResponse | 0            | Json or String format response from `res.php` API endpoint, extendedResponse = 1 returns JSON format response                                      |
+| extendedResponse | 0            | Json or String format response from `res.php` API endpoint, extendedResponse = 1 returns JSON format response. Suitable for [ClickCaptcha](#clickcaptcha), [Canvas](#canvas) |
 
 >  [!IMPORTANT]
 >  Once *callback URL* is defined for `TwoCaptcha` instance with `setCallback`, all methods return only the captcha ID and DO NOT poll the API to get the result. The result will be sent to the callback URL.
@@ -130,6 +131,9 @@ try {
 ```
 
 ### Normal Captcha
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#solving_normal_captcha)</sup>
+
 To bypass a normal captcha (distorted text on image) use the following method. This method also can be used to recognize any text on the image.
 
 ```java
@@ -147,6 +151,9 @@ captcha.setHintText("Type red symbols only");
 ```
 
 ### Text Captcha
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#solving_text_captcha)</sup>
+
 This method can be used to bypass a captcha that requires to answer a question provided in clear text.
 
 ```java
@@ -155,8 +162,11 @@ captcha.setText("If tomorrow is Saturday, what day is today?");
 captcha.setLang("en");
 ```
 
-### ReCaptcha v2
-Use this method to solve ReCaptcha V2 and obtain a token to bypass the protection.
+### reCAPTCHA v2
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#solving_recaptchav2_new)</sup>
+
+Use this method to solve reCAPTCHA V2 and obtain a token to bypass the protection.
 
 ```java
 ReCaptcha captcha = new ReCaptcha();
@@ -167,8 +177,11 @@ captcha.setEnterprise(true);
 captcha.setAction("verify");
 captcha.setProxy("HTTPS", "login:password@IP_address:PORT");
 ```
-### ReCaptcha v3
-This method provides ReCaptcha V3 solver and returns a token.
+### reCAPTCHA v3
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#solving_recaptchav3)</sup>
+
+This method provides reCAPTCHA V3 solver and returns a token.
 
 ```java
 ReCaptcha captcha = new ReCaptcha();
@@ -182,6 +195,9 @@ captcha.setProxy("HTTPS", "login:password@IP_address:PORT");
 ```
 
 ### FunCaptcha
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#solving_funcaptcha_new)</sup>
+
 FunCaptcha (Arkoselabs) solving method. Returns a token.
 
 ```java
@@ -195,6 +211,9 @@ captcha.setProxy("HTTPS", "login:password@IP_address:PORT");
 ```
 
 ### GeeTest
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#solving_geetest)</sup>
+
 Method to solve GeeTest puzzle captcha. Returns a set of tokens as JSON.
 
 ```java
@@ -206,7 +225,10 @@ captcha.setUrl("https://mysite.com/captcha.html");
 captcha.setProxy("HTTPS", "login:password@IP_address:PORT");
 ```
 
-### GeeTestV4
+### GeeTest v4
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#geetest-v4)</sup>
+
 Method to solve GeeTestV4 puzzle captcha. Returns a set of tokens as JSON.
 
 ```java
@@ -219,6 +241,9 @@ captcha.setProxy("HTTPS", "login:password@IP_address:PORT");
 ```
 
 ### KeyCaptcha
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#solving_keycaptcha)</sup>
+
 Token-based method to solve KeyCaptcha.
 
 ```java
@@ -232,6 +257,9 @@ captcha.setProxy("HTTPS", "login:password@IP_address:PORT");
 ```
 
 ### Capy
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#solving_capy)</sup>
+
 Token-based method to bypass Capy puzzle captcha.
 
 ```java
@@ -242,7 +270,10 @@ captcha.setProxy("HTTPS", "login:password@IP_address:PORT");
 ```
 
 ### Grid
-Grid method is originally called Old ReCaptcha V2 method. The method can be used to bypass any type of captcha where you can apply a grid on image and need to click specific grid boxes. Returns numbers of boxes.
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#grid)</sup>
+
+Grid method is originally called Old reCAPTCHA V2 method. The method can be used to bypass any type of captcha where you can apply a grid on image and need to click specific grid boxes. Returns numbers of boxes.
 
 ```java
 Grid captcha = new Grid();
@@ -257,6 +288,9 @@ captcha.setHintText("Select all images with an Orange");
 ```
 
 ### Canvas
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#canvas)</sup>
+
 Canvas method can be used when you need to draw a line around an object on image. Returns a set of points' coordinates to draw a polygon.
 
 ```java
@@ -270,6 +304,9 @@ captcha.setHintText("Draw around apple");
 ```
 
 ### ClickCaptcha
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#coordinates)</sup>
+
 ClickCaptcha method returns coordinates of points on captcha image. Can be used if you need to click on particular points on the image.
 
 ```java
@@ -281,6 +318,9 @@ captcha.setHintText("Select all images with an Orange");
 ```
 
 ### Rotate
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#solving_rotatecaptcha)</sup>
+
 This method can be used to solve a captcha that asks to rotate an object. Mostly used to bypass FunCaptcha. Returns the rotation angle.
 
 ```java
@@ -292,8 +332,12 @@ captcha.setHintImg(new File("path/to/hint.jpg"));
 captcha.setHintText("Put the images in the correct way up");
 ```
 
-### Audio
-This method can be used to solve a audio captcha
+### Audio Captcha
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#audio)</sup>
+
+Use the following method to bypass an audio captcha (mp3 formats only). 
+You must provide the language as `lang = 'en'`. Supported languages are "en", "ru", "de", "el", "pt", "fr".
 
 ```java
 TwoCaptcha solver = new TwoCaptcha(args[0]);
@@ -313,7 +357,10 @@ captcha.setSiteKey("Y5Lh0tiycconMJGsFd3EbbuNKSp1yaZESUOIHfeV");
 captcha.setUrl("https://rutube.ru");
 ```
 
-### Lemin
+### Lemin Cropped Captcha
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#lemin)</sup>
+
 Use this method to solve Lemin and obtain a token to bypass the protection.
 
 ```java
@@ -324,8 +371,11 @@ captcha.setUrl("https://mysite.com/page/with/LeminCaptcha");
 captcha.setApiServer("api.leminnow.com");
 ```
 
-### Turnstile
-Use this method to solve Turnstile and obtain a token to bypass the protection.
+### Cloudflare Turnstile
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#turnstile)</sup>
+
+Use this method to solve Cloudflare Turnstile and obtain a token to bypass the protection.
 
 ```java
 TwoCaptcha solver = new TwoCaptcha(args[0]);
@@ -334,8 +384,11 @@ captcha.setSiteKey("0x4AAAAAAAChNiVJM_WtShFf");
 captcha.setUrl("https://ace.fusionist.io");
 ```
 
-### AmazonWaf
-Use this method to solve AmazonWaf and obtain a token to bypass the protection.
+### Amazon WAF
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#amazon-waf)</sup>
+
+Use this method to solve Amazon WAF and obtain a token to bypass the protection.
 
 ```java
 TwoCaptcha solver = new TwoCaptcha(args[0]);
@@ -347,6 +400,9 @@ captcha.setContext("test_context");
 ```
 
 ### Friendly Captcha
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#friendly-captcha)</sup>
+
 Use this method to solve Friendly Captcha and obtain a token to bypass the protection.
 
 ```java
@@ -356,8 +412,11 @@ friendlyCaptcha.setSiteKey("FCMST5VUMCBOCGQ9");
 friendlyCaptcha.setPageUrl("https://mysite.com/page/with/FriendlyCaptcha");
 ```
 
-### MtCaptcha
-Use this method to solve MtCaptcha and obtain a token to bypass the protection.
+### MTCaptcha
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#mtcaptcha)</sup>
+
+Use this method to solve MTCaptcha and obtain a token to bypass the protection.
 
 ```java
 TwoCaptcha solver = new TwoCaptcha(args[0]);
@@ -367,6 +426,9 @@ mtCaptcha.setPageUrl("https://2captcha.com/demo/mtcaptcha");
 ```
 
 ### Tencent
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#tencent)</sup>
+
 Use this method to solve Tencent and obtain a token to bypass the protection.
 
 ```java
@@ -376,6 +438,9 @@ tencent.setAppId("2092215077");
 tencent.setPageUrl("https://mysite.com/page/with/tencent");
 ```
 ### Cutcaptcha
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#cutcaptcha)</sup>
+
 Use this method to solve Cutcaptcha and obtain a token to bypass the protection.
 
 ```java
@@ -386,8 +451,11 @@ cutcaptcha.setUrl("https://filecrypt.co/Container/237D4D0995.html");
 cutcaptcha.setDataApiKey("SAb83IIB");
 ```
 
-### AtbCAPTCHA
-Use this method to solve AtbCAPTCHA and obtain a token to bypass the protection.
+### atbCAPTCHA
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#atb-captcha)</sup>
+
+Use this method to solve atbCAPTCHA and obtain a token to bypass the protection.
 
 ```java
 AtbCAPTCHA captcha = new AtbCAPTCHA();
@@ -397,7 +465,10 @@ captcha.setApiServer("https://cap.aisecurius.com");
 ```
 
 ### CyberSiARA
-Use this method to solve Cybersiara and obtain a token to bypass the protection.
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#cybersiara)</sup>
+
+Use this method to solve CyberSiARA and obtain a token to bypass the protection.
 
 ```java
 Cybersiara captcha = new Cybersiara();
@@ -407,7 +478,13 @@ captcha.setUserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.
 ```
 
 ### DataDome
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#datadome)</sup>
+
 Use this method to solve DataDome and obtain a token to bypass the protection.
+
+> [!IMPORTANT]
+> To solve the DataDome captcha, you must use a proxy. It is recommended to use [residential proxies].
 
 ```java
 DataDome captcha = new DataDome();
@@ -430,12 +507,18 @@ Thread.sleep(20 * 1000);
 String code = solver.getResult(captchaId);
 ```
 ### balance
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#additional-methods)</sup>
+
 Use this method to get your account's balance
 
 ```java
 double balance = solver.balance();
 ```
 ### report
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#complain)</sup>
+
 Use this method to report good or bad captcha answer.
 
 ```java
@@ -454,7 +537,7 @@ captcha.setProxy("HTTPS", "login:password@IP_address:PORT");
 
 
 ## Error handling
-If case of an error captcha solver throws an exception. It's important to properly handle these cases. We recommend to use `try catch` to handle exceptions.
+If case of an error captcha solver throws an exception. It's important to properly handle these cases. We recommend to use `try catch` to handle exceptions. The list of all errors can be found in the [API documentation](https://2captcha.com/2captcha-api#list-of-inphp-errors).
 
 ```java
 try {
@@ -469,6 +552,9 @@ try {
     // captcha is not solved so far
 }
 ```
+
+## Examples
+Examples of solving all supported captcha types are located in the [examples] directory.
 
 ## Get in touch
 
@@ -492,9 +578,11 @@ The graphics and trademarks included in this repository are not covered by the M
 <!-- Shared links -->
 [Maven Central]: https://search.maven.org/artifact/com.github.2captcha/2captcha-java
 [Examples directory]: ./src/main/java/examples
+[examples]: ./src/main/java/examples
 [2Captcha]: https://2captcha.com/
 [2captcha sofware catalog]: https://2captcha.com/software
 [Pingback settings]: https://2captcha.com/setting/pingback
 [Post options]: https://2captcha.com/2captcha-api#normal_post
 [List of supported languages]: https://2captcha.com/2captcha-api#language
 [Java captcha solver]: https://2captcha.com/lang/java
+[residential proxies]: https://2captcha.com/proxy/residential-proxies
