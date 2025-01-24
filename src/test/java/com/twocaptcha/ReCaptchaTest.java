@@ -14,6 +14,8 @@ public class ReCaptchaTest extends AbstractWrapperTestCase {
         captcha.setInvisible(true);
         captcha.setEnterprise(true);
         captcha.setAction("verify");
+        captcha.setUserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36");
+        captcha.setCookies("KEY1:Value1;KEY2:Value2;");
 
         Map<String, String> params = new HashMap<>();
         params.put("method", "userrecaptcha");
@@ -22,6 +24,8 @@ public class ReCaptchaTest extends AbstractWrapperTestCase {
         params.put("invisible", "1");
         params.put("enterprise", "1");
         params.put("action", "verify");
+        params.put("userAgent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36");
+        params.put("cookies", "KEY1:Value1;KEY2:Value2;");
         params.put("soft_id", "4581");
         params.put("json", "0");
 

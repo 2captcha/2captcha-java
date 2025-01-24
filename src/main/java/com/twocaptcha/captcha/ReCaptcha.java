@@ -39,4 +39,12 @@ public class ReCaptcha extends Captcha {
         params.put("data-s", data);
     }
 
+    public void setUserAgent(String userAgent) {
+        params.put("userAgent", userAgent);
+    }
+
+    public void setCookies(String cookies) {
+        params.put("cookies", cookies);
+    }
+
 }
