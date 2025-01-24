@@ -21,6 +21,8 @@ public class ReCaptchaV2OptionsExample {
         captcha.setData("foo");
         captcha.setAction("verify");
         captcha.setProxy("HTTPS", "login:password@IP_address:PORT");
+        captcha.setUserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36");
+        captcha.setCookies("KEY1:Value1;KEY2:Value2;");
 
         try {
             solver.solve(captcha);
