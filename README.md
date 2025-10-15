@@ -43,6 +43,7 @@ Examples of API requests for different captcha types are available on the [Java 
     - [atbCAPTCHA](#atbcaptcha)
     - [CyberSiARA](#cybersiara)
     - [DataDome](#datadome)
+    - [VK Captcha](#vk-captcha)
   - [Other methods](#other-methods)
     - [send / getResult](#send--getresult)
     - [balance](#balance)
@@ -494,6 +495,21 @@ captcha.setCaptchaUrl("https://geo.captcha-delivery.com/captcha/?initialCid=AHrl
 captcha.setUrl("https://example.com/");
 captcha.setUserAgent("Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Mobile Safari/537.3");
 captcha.setProxy("HTTPS", "login:password@IP_address:PORT");
+```
+
+### VK Captcha
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#vkcaptcha)</sup>
+
+We offer two methods to solve this type of captcha - token-based and image-based.
+
+We use the body (image in base64 format) or file (image as file) and steps parameters.
+You can get both values from the response to the request https://api.vk.com/method/captchaNotRobot.getContent?v={API_VER} when loading the captcha widget on the page.
+
+```java
+VkCaptcha captcha = new VkCaptcha("vkimage");
+captcha.setImageBase64(base64EncodedImage);
+captcha.setSteps("[5,12,22,24,21,23,10,7,2,8,...]");
 ```
 
 ## Other methods
