@@ -14,6 +14,7 @@ public class VkExample {
 
     private void imageBased(String apiKey) throws IOException {
         TwoCaptcha solver = new TwoCaptcha(apiKey);
+        solver.setExtendedResponse(1);
 
         byte[] bytes = Files.readAllBytes(Paths.get("src/main/resources/vk.jpg"));
         String base64EncodedImage = Base64.getEncoder().encodeToString(bytes);
@@ -49,7 +50,7 @@ public class VkExample {
     public static void main(String[] args) throws Exception {
         VkExample vkExample = new VkExample();
         vkExample.imageBased(args[0]);
-        vkExample.tokenBased(args[0]);
+        //vkExample.tokenBased(args[0]);
     }
 
 }
