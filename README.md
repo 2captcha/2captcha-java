@@ -498,7 +498,7 @@ captcha.setUserAgent("Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHT
 captcha.setProxy("HTTPS", "login:password@IP_address:PORT");
 ```
 
-### VK Captcha
+### VK Image
 
 <sup>[API method description.](https://2captcha.com/2captcha-api#vkcaptcha)</sup>
 
@@ -512,12 +512,11 @@ VkCaptcha captcha = new VkCaptcha("vkimage");
 captcha.setImageBase64(base64EncodedImage);
 captcha.setSteps("[5,12,22,24,21,23,10,7,2,8,...]");
 ```
-### VK Image
+### VK Captcha
 
 <sup>[API method description.](https://2captcha.com/2captcha-api#vk-captcha)</sup>
 
-We use the body (image in base64 format) or file (image as file) and steps parameters.
-You can get both values from the response to the request https://api.vk.com/method/captchaNotRobot.getContent?v={API_VER} when loading the captcha widget on the page.
+Token-based method requires redirect_uri parameter, as well as proxy and userAgent. The value of the redirect_uri parameter can be found in the response to requests to the VK API that return captchas.
 
 ```java
 VkCaptcha captcha = new VkCaptcha("vkcaptcha");
