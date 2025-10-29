@@ -1,21 +1,49 @@
 package examples;
 
 import com.twocaptcha.TwoCaptcha;
+import com.twocaptcha.captcha.Captcha;
+import com.twocaptcha.captcha.GenericCaptcha;
 import com.twocaptcha.captcha.Text;
+
+import java.awt.*;
+import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
 
 public class TextExample {
 
-    public static void main(String[] args) {
-        TwoCaptcha solver = new TwoCaptcha(args[0]);
+    String key;
+    Map<String, String> params;
+    Map<String, File> files;
 
-        Text captcha = new Text("If tomorrow is Saturday, what day is today?");
+    String text = "If tomorrow is Saturday, what day is today?";
 
+    public TextExample(String key) {
+        this.key = key;
+        params = new HashMap<>();
+        files = new HashMap<>();
+    }
+
+    void resolve(){
+        TwoCaptcha solver = new TwoCaptcha(this.key);
+        Captcha сaptcha = new Captcha();
+
+        params.put("method", "post");
+        params.put("textcaptcha", text);
+
+        сaptcha.params = params;
         try {
-            solver.solve(captcha);
-            System.out.println("Captcha solved: " + captcha.getCode());
+            solver.solve(сaptcha);
+            System.out.println("Captcha solved: " + сaptcha.getCode());
         } catch (Exception e) {
             System.out.println("Error occurred: " + e.getMessage());
         }
+
+    }
+
+    public static void main(String[] args) {
+        TextExample textExample = new TextExample(args[0]);
+        textExample.resolve();
     }
 
 }

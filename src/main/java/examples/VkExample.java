@@ -31,6 +31,8 @@ public class VkExample {
         }
     }
 
+
+    /*
     private void tokenBased(String apiKey) throws IOException {
         TwoCaptcha solver = new TwoCaptcha(apiKey);
         VkCaptcha captcha = new VkCaptcha("vkcaptcha");
@@ -46,6 +48,7 @@ public class VkExample {
         }
     }
 
+    */
     public static void main(String[] args) throws Exception {
         VkExample vkExample = new VkExample();
         vkExample.imageBased(args[0]);

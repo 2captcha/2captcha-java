@@ -4,13 +4,13 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
-public abstract class Captcha {
+public class Captcha {
 
     protected String id;
     protected String code;
 
-    protected Map<String, String> params;
-    protected Map<String, File> files;
+    public Map<String, String> params;
+    public Map<String, File> files;
 
     public Captcha() {
         params = new HashMap<>();
