@@ -1,5 +1,7 @@
 package com.twocaptcha.captcha;
 
+import java.io.File;
+
 public class VkCaptcha extends Captcha {
 
     public VkCaptcha(String method) {
@@ -23,5 +25,12 @@ public class VkCaptcha extends Captcha {
         params.put("userAgent", userAgent);
     }
 
+    public void setFile(String filePath) {
+        setFile(new File(filePath));
+    }
+
+    public void setFile(File file) {
+        files.put("file", file);
+    }
 
 }
