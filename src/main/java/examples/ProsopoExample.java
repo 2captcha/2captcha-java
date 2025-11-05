@@ -9,8 +9,8 @@ public class ProsopoExample {
         TwoCaptcha solver = new TwoCaptcha(args[0]);
 
         Prosopo captcha = new Prosopo();
-        captcha.setSiteKey("5EPQoMZEDc5LpN7gtxMMzYPTzA6UeWqL2stk1rso9gy4Ahqt");
-        captcha.setUrl("https://www.example.com/");
+        captcha.setSiteKey("5EZVvsHMrKCFKp5NYNoTyDjTjetoVo1Z4UNNbTwJf1GfN6Xm");
+        captcha.setUrl("https://www.twickets.live/");
 
         try {
             solver.solve(captcha);
