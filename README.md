@@ -43,6 +43,7 @@ Examples of API requests for different captcha types are available on the [Java 
     - [atbCAPTCHA](#atbcaptcha)
     - [CyberSiARA](#cybersiara)
     - [DataDome](#datadome)
+    - [Prosopo](#prosopo)
   - [Other methods](#other-methods)
     - [send / getResult](#send--getresult)
     - [balance](#balance)
@@ -494,6 +495,16 @@ captcha.setCaptchaUrl("https://geo.captcha-delivery.com/captcha/?initialCid=AHrl
 captcha.setUrl("https://example.com/");
 captcha.setUserAgent("Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Mobile Safari/537.3");
 captcha.setProxy("HTTPS", "login:password@IP_address:PORT");
+```
+
+### Prosopo
+Use this method to solve Prosopo and obtain a token to bypass the protection.
+
+```java
+TwoCaptcha solver = new TwoCaptcha(args[0]);   // args[0] = "API KEY"
+Prosopo captcha = new Prosopo();
+captcha.setSiteKey("5EPQoMZEDc5LpN7gtxMMzYPTzA6UeWqL2stk1rso9gy4Ahqt");
+captcha.setUrl("https://www.example.com/");
 ```
 
 ## Other methods
