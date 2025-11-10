@@ -17,7 +17,7 @@ public class VkCaptchaExample {
         VkCaptcha captcha = new VkCaptcha("vkcaptcha");
         captcha.setRedirectUri("https://id.vk.com/not_robot_captcha?domain=vk.com&session_token=eyJ....HGsc5B4LyvjA&variant=popup&blank=1");
         captcha.setuserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36");
-        captcha.setProxy("http", "1.2.3.4");
+        captcha.setProxy("HTTPS", "login:password@IP_address:PORT");
 
         try {
             solver.solve(captcha);
