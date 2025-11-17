@@ -43,6 +43,7 @@ Examples of API requests for different captcha types are available on the [Java 
     - [atbCAPTCHA](#atbcaptcha)
     - [CyberSiARA](#cybersiara)
     - [DataDome](#datadome)
+    - [CaptchaFox](#captchafox)
   - [Other methods](#other-methods)
     - [send / getResult](#send--getresult)
     - [balance](#balance)
@@ -493,6 +494,19 @@ DataDome captcha = new DataDome();
 captcha.setCaptchaUrl("https://geo.captcha-delivery.com/captcha/?initialCid=AHrlqAAA...P~XFrBVptk&t=fe&referer=https%3A%2F%2Fhexample.com&s=45239&e=c538be..c510a00ea");
 captcha.setUrl("https://example.com/");
 captcha.setUserAgent("Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Mobile Safari/537.3");
+captcha.setProxy("HTTPS", "login:password@IP_address:PORT");
+```
+
+### CaptchaFox
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#captchafox)</sup>
+
+This method can be used to solve CaptchaFox using a token. Returns a token.
+
+```java
+Captchafox captcha = new Captchafox();
+captcha.setSiteKey("sk_ILKWNruBBVKDOM7dZs59KHnDLEWiH");
+captcha.setUrl("https://mysite.com/page/with/captchafox");
 captcha.setProxy("HTTPS", "login:password@IP_address:PORT");
 ```
 
