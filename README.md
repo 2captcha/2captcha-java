@@ -44,6 +44,7 @@ Examples of API requests for different captcha types are available on the [Java 
     - [CyberSiARA](#cybersiara)
     - [DataDome](#datadome)
     - [CaptchaFox](#captchafox)
+    - [Temu](#temu)
   - [Other methods](#other-methods)
     - [send / getResult](#send--getresult)
     - [balance](#balance)
@@ -508,6 +509,20 @@ Captchafox captcha = new Captchafox();
 captcha.setSiteKey("sk_ILKWNruBBVKDOM7dZs59KHnDLEWiH");
 captcha.setUrl("https://mysite.com/page/with/captchafox");
 captcha.setProxy("HTTPS", "login:password@IP_address:PORT");
+```
+
+### Temu
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#temucaptcha)</sup>
+
+This method can be used to solve Temucaptch. Returns a coordinates.
+
+```java
+Temu captcha = new Temu();
+captcha.setBody(body);
+captcha.setPart1(part1);
+captcha.setPart2(part2);
+captcha.setPart3(part3);
 ```
 
 ## Other methods
