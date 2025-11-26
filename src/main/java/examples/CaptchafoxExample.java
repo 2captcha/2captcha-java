@@ -12,6 +12,7 @@ public class CaptchafoxExample {
         Captchafox captcha = new Captchafox();
         captcha.setSiteKey("sk_ILKWNruBBVKDOM7dZs59KHnDLEWiH");
         captcha.setUrl("https://mysite.com/page/with/captchafox");
+        captcha.setUserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36");
         captcha.setProxy("HTTPS", "login:password@IP_address:PORT");
 
         try {
