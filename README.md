@@ -516,7 +516,7 @@ captcha.setUserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.
 
 <sup>[API method description.](https://2captcha.com/2captcha-api#temucaptcha)</sup>
 
-This method can be used to solve Temucaptch. Returns a coordinates.
+This method can be used to solve Temu. Returns a coordinates.
 
 ```java
 Temu captcha = new Temu();
