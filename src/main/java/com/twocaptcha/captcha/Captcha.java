@@ -64,4 +64,11 @@ public abstract class Captcha {
         return new HashMap<>(files);
     }
 
+    public void setSiteKey(String siteKey) {
+        params.put("sitekey", siteKey);
+    }
+
+    public void setUrl(String url) {
+        params.put("pageurl", url);
+    }
 }

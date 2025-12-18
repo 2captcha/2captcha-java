@@ -96,7 +96,7 @@ public class ApiClient {
 
             String body = response.body().string();
 
-            if (body.startsWith("ERROR_")) {
+            if (body.contains("ERROR_")) {
                 throw new ApiException(body);
             }
 
