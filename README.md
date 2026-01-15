@@ -43,6 +43,7 @@ Examples of API requests for different captcha types are available on the [Java 
     - [atbCAPTCHA](#atbcaptcha)
     - [CyberSiARA](#cybersiara)
     - [DataDome](#datadome)
+    - [Prosopo](#prosopo)
     - [VK Captcha](#vk-captcha)
     - [VK Image](#vk-image)
   - [Other methods](#other-methods)
@@ -498,6 +499,16 @@ captcha.setUserAgent("Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHT
 captcha.setProxy("HTTPS", "login:password@IP_address:PORT");
 ```
 
+### Prosopo
+Use this method to solve Prosopo and obtain a token to bypass the protection.
+
+```java
+TwoCaptcha solver = new TwoCaptcha(args[0]);   // args[0] = "API KEY"
+Prosopo captcha = new Prosopo();
+captcha.setSiteKey("5EZVvsHMrKCFKp5NYNoTyDjTjetoVo1Z4UNNbTwJf1GfN6Xm");
+captcha.setUrl("https://www.twickets.live/");
+```
+
 ### VK Image
 
 <sup>[API method description.](https://2captcha.com/2captcha-api#vkcaptcha)</sup>
@@ -512,6 +523,7 @@ VkCaptcha captcha = new VkCaptcha("vkimage");
 captcha.setImageBase64(base64EncodedImage);
 captcha.setSteps("[5,12,22,24,21,23,10,7,2,8,...]");
 ```
+
 ### VK Captcha
 
 <sup>[API method description.](https://2captcha.com/2captcha-api#vk-captcha)</sup>
