@@ -44,6 +44,8 @@ Examples of API requests for different captcha types are available on the [Java 
     - [CyberSiARA](#cybersiara)
     - [DataDome](#datadome)
     - [Prosopo](#prosopo)
+    - [VK Captcha](#vk-captcha)
+    - [VK Image](#vk-image)
   - [Other methods](#other-methods)
     - [send / getResult](#send--getresult)
     - [balance](#balance)
@@ -505,6 +507,31 @@ TwoCaptcha solver = new TwoCaptcha(args[0]);   // args[0] = "API KEY"
 Prosopo captcha = new Prosopo();
 captcha.setSiteKey("5EZVvsHMrKCFKp5NYNoTyDjTjetoVo1Z4UNNbTwJf1GfN6Xm");
 captcha.setUrl("https://www.twickets.live/");
+### VK Image
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#vkcaptcha)</sup>
+
+We offer two methods to solve this type of captcha - token-based and image-based.
+
+We use the body (image in base64 format) or file (image as file) and steps parameters.
+You can get both values from the response to the request https://api.vk.com/method/captchaNotRobot.getContent?v={API_VER} when loading the captcha widget on the page.
+
+```java
+VkCaptcha captcha = new VkCaptcha("vkimage");
+captcha.setImageBase64(base64EncodedImage);
+captcha.setSteps("[5,12,22,24,21,23,10,7,2,8,...]");
+```
+### VK Captcha
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#vk-captcha)</sup>
+
+Token-based method requires redirect_uri parameter, as well as proxy and userAgent. The value of the redirect_uri parameter can be found in the response to requests to the VK API that return captchas.
+
+```java
+VkCaptcha captcha = new VkCaptcha("vkcaptcha");
+captcha.setRedirectUri("https://id.vk.com/not_robot_captcha?domain=vk.com&session_token=eyJ....HGsc5B4LyvjA&variant=popup&blank=1");
+captcha.setuserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36");
+captcha.setProxy("http", "1.2.3.4");
 ```
 
 ## Other methods
