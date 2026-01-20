@@ -67,4 +67,12 @@ public abstract class Captcha {
     public void setUserAgent(String userAgent) {
         params.put("userAgent", userAgent);
     }
+  
+    public void setSiteKey(String siteKey) {
+        params.put("sitekey", siteKey);
+    }
+
+    public void setUrl(String url) {
+        params.put("pageurl", url);
+    }
 }

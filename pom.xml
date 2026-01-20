@@ -6,7 +6,7 @@
 
     <groupId>com.github.2captcha</groupId>
     <artifactId>2captcha-java</artifactId>
-    <version>1.3.1</version>
+    <version>1.3.2</version>
 
     <name>2captcha-java</name>
     <description>Java library for easy integration with the API of 2captcha captcha solving service to bypass recaptcha, funcaptcha, geetest and solve any other captchas.</description>
@@ -136,8 +136,10 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <passphraseServerId>gpg.passphrase</passphraseServerId>
+                    <useAgent>false</useAgent>
+                    <passphrase>${env.GPG_PASSPHRASE}</passphrase>
                     <gpgArguments>
+                        <arg>--batch</arg>
                         <arg>--pinentry-mode</arg>
                         <arg>loopback</arg>
                     </gpgArguments>
