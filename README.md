@@ -43,6 +43,8 @@ Examples of API requests for different captcha types are available on the [Java 
     - [atbCAPTCHA](#atbcaptcha)
     - [CyberSiARA](#cybersiara)
     - [DataDome](#datadome)
+    - [CaptchaFox](#captchafox)
+    - [Temu](#temu)
     - [Prosopo](#prosopo)
     - [VK Captcha](#vk-captcha)
     - [VK Image](#vk-image)
@@ -497,6 +499,34 @@ captcha.setCaptchaUrl("https://geo.captcha-delivery.com/captcha/?initialCid=AHrl
 captcha.setUrl("https://example.com/");
 captcha.setUserAgent("Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Mobile Safari/537.3");
 captcha.setProxy("HTTPS", "login:password@IP_address:PORT");
+```
+
+### CaptchaFox
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#captchafox)</sup>
+
+This method can be used to solve CaptchaFox using a token. Returns a token.
+
+```java
+Captchafox captcha = new Captchafox();
+captcha.setSiteKey("sk_ILKWNruBBVKDOM7dZs59KHnDLEWiH");
+captcha.setUrl("https://mysite.com/page/with/captchafox");
+captcha.setProxy("HTTPS", "login:password@IP_address:PORT");
+captcha.setUserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36");
+```
+
+### Temu
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#temucaptcha)</sup>
+
+This method can be used to solve Temu. Returns a coordinates.
+
+```java
+Temu captcha = new Temu();
+captcha.setBody(body);
+captcha.setPart1(part1);
+captcha.setPart2(part2);
+captcha.setPart3(part3);
 ```
 
 ### Prosopo

@@ -64,6 +64,10 @@ public abstract class Captcha {
         return new HashMap<>(files);
     }
 
+    public void setUserAgent(String userAgent) {
+        params.put("userAgent", userAgent);
+    }
+  
     public void setSiteKey(String siteKey) {
         params.put("sitekey", siteKey);
     }
