@@ -35,6 +35,7 @@ Examples of API requests for different captcha types are available on the [Java 
     - [Yandex](#yandex)
     - [Lemin Cropped Captcha](#lemin-cropped-captcha)
     - [Cloudflare Turnstile](#cloudflare-turnstile)
+    - [Cloudflare Challenge](#cloudflare-challenge)
     - [Amazon WAF](#amazon-waf)
     - [Friendly Captcha](#friendly-captcha)
     - [MTCaptcha](#mtcaptcha)
@@ -389,6 +390,23 @@ TwoCaptcha solver = new TwoCaptcha(args[0]);
 Turnstile captcha = new Turnstile();
 captcha.setSiteKey("0x4AAAAAAAChNiVJM_WtShFf");
 captcha.setUrl("https://ace.fusionist.io");
+```
+
+### Cloudflare Challenge
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#challenge)</sup>
+
+Use this method to solve Cloudflare Challenge and obtain a token to bypass the protection.
+
+```java
+TwoCaptcha solver = new TwoCaptcha(args[0]);
+CloudflareChallenge captcha = new CloudflareChallenge();
+captcha.setSiteKey("0x4AAAAAAAChNiVJM_WtShFf");
+captcha.setUrl("https://ace.fusionist.io");
+captcha.setAction("managed");
+captcha.setData("99df96c88d9ed949");
+captcha.setPagedata("gjEUFRK3K_qx8aLOGg-1763050748-1.3.1.1-Cq...");
+captcha.setUserAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 29_82_9) Safari/971.69");
 ```
 
 ### Amazon WAF
