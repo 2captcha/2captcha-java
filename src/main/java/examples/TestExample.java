@@ -27,6 +27,9 @@ public class TestExample {
     }
 
     /*
+    Body: {"errorId":12,"errorCode":"ERROR_CAPTCHA_UNSOLVABLE","errorDescription":"Workers could not solve the Captcha"}
+Error occurred: JSONObject["status"] not found.
+    ----------------------------------
     {
   "errorDescription" : "Sandbox is full",
   "errorCode" : "ERROR_NO_SLOT_AVAILABLE",
@@ -45,7 +48,7 @@ public class TestExample {
 
             JSONObject json = new JSONObject();
             json.put("clientKey", "06c869c488704f62826181f2562ac999");
-            json.put("languagePool", "en");
+            json.put("languagePool", "ru");
             json.put("task", inner);
 
             HttpClient client = HttpClient.newHttpClient();
@@ -77,7 +80,7 @@ public class TestExample {
         }
     }
 
-    public void waitForResult(Long taskId, Map<String, Integer> waitOptions) throws Exception {
+    public JSONObject waitForResult(Long taskId, Map<String, Integer> waitOptions) throws Exception {
         long startedAt = (long) (System.currentTimeMillis() / 1000);
 
         int timeout = waitOptions.getOrDefault("timeout", this.defaultTimeout);
@@ -124,6 +127,13 @@ public class TestExample {
 
                 System.out.println("Status: " + response.statusCode());
                 System.out.println("Body: " + response.body());
+
+                JSONObject jsonObject = new JSONObject(response.body());
+                String status = jsonObject.getString("status");
+                if(status.equals("ready")) {
+                    return jsonObject;
+                }
+
             } catch (Exception e) {
                 System.out.println("Error occurred: " + e.getMessage());
             }
