@@ -47,7 +47,7 @@ Error occurred: JSONObject["status"] not found.
                     .put("comment", "If tomorrow is Saturday, what day is today?");
 
             JSONObject json = new JSONObject();
-            json.put("clientKey", "06c869c488704f62826181f2562ac999");
+            json.put("clientKey", "");
             json.put("languagePool", "ru");
             json.put("task", inner);
 
@@ -112,7 +112,7 @@ Error occurred: JSONObject["status"] not found.
             }*/
             try {
                 JSONObject json = new JSONObject();
-                json.put("clientKey", "06c869c488704f62826181f2562ac999");
+                json.put("clientKey", "");
                 json.put("taskId", taskId);
 
                 HttpClient client = HttpClient.newHttpClient();
