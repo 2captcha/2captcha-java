@@ -11,7 +11,12 @@ public class Example {
     }
 
     void resolve(){
+        //        solver.setDefaultTimeout(120);
+        //        solver.setRecaptchaTimeout(600);
+        //        solver.setPollingInterval(10);
         ApiClient apiClient = new ApiClient(this.key);
+        //apiClient.defaultTimeout = 333;
+        //apiClient.pollingInterval = 22;
         JSONObject innerJsonObject = new JSONObject()
                 .put("type", "TextCaptchaTask")
                 .put("comment", "If tomorrow is Saturday, what day is today?");
@@ -23,7 +28,7 @@ public class Example {
 
         try {
             JSONObject resultJsonObject = apiClient.solve(jsonObject);
-            //System.out.println("Captcha solved: " + сaptcha.getCode());
+            System.out.println("Captcha solved: " + resultJsonObject.toString());
         } catch (Exception e) {
             System.out.println("Error occurred: " + e.getMessage());
         }

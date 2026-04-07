@@ -11,18 +11,18 @@ import java.net.http.HttpResponse;
 import java.util.Map;
 
 public class ApiClient {
-    private String apiKey;
+    String apiKey;
     private Long id;
-    private int defaultTimeout = 120;
-    private int pollingInterval = 10;
+    int timeout = 120;
+    int pollingInterval = 10;
 
     public ApiClient(String apiKey) {
         this.apiKey = apiKey;
     }
 
-    public JSONObject solve(JSONObject jsonObject, Map<String, Integer> waitOptions) throws Exception {
+    public JSONObject solve(JSONObject jsonObject) throws Exception {
         this.id = send(jsonObject);
-        return waitForResult(this.id, waitOptions);
+        return waitForResult(this.id);
     }
 
     private Long send(JSONObject jsonObject) throws IOException, InterruptedException {
@@ -43,39 +43,21 @@ public class ApiClient {
         return responseJsonObject.getLong("taskId");
     }
 
-    public JSONObject waitForResult(Long taskId, Map<String, Integer> waitOptions) throws Exception {
+    public JSONObject waitForResult(Long taskId) throws Exception {
         long startedAt = (long) (System.currentTimeMillis() / 1000);
-
-        int timeout = waitOptions.getOrDefault("timeout", this.defaultTimeout);
-        int pollingInterval = waitOptions.getOrDefault("pollingInterval", this.pollingInterval);
 
         while (true) {
             long now = (long) (System.currentTimeMillis() / 1000);
 
-            if (now - startedAt < timeout) {
-                Thread.sleep(pollingInterval * 1000);
+            if (now - startedAt < this.timeout) {
+                Thread.sleep(this.pollingInterval * 1000);
             } else {
                 break;
             }
 
-            /*try {
-
-                //Object result = getResult(captcha.getId());
-                {
-                    "clientKey": "YOUR_API_KEY",
-                        "taskId": 74372499131
-                }
-
-                if (result != null) {
-                    captcha.setCode(String.valueOf(result));
-                    return;
-                }
-            } catch (NetworkException e) {
-                // ignore network errors
-            }*/
             try {
                 JSONObject json = new JSONObject();
-                //json.put("clientKey", this.key);
+                json.put("clientKey", this.apiKey);
                 json.put("taskId", taskId);
 
                 HttpClient client = HttpClient.newHttpClient();
@@ -102,6 +84,6 @@ public class ApiClient {
             }
         }
 
-        throw new TimeoutException("Timeout " + timeout + " seconds reached");
+        throw new TimeoutException("Timeout " + this.timeout + " seconds reached");
     }
 }

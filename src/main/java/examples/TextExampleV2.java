@@ -1,7 +1,7 @@
 package examples;
 
 import com.twocaptcha.TwoCaptcha;
-import com.twocaptcha.TwoCaptchaV2;
+//import com.twocaptcha.TwoCaptchaV2;
 import com.twocaptcha.captcha.Captcha;
 
 import java.io.File;
@@ -23,7 +23,7 @@ public class TextExampleV2 {
     }
 
     void resolve(){
-        TwoCaptchaV2 solver = new TwoCaptchaV2(this.key);
+        //TwoCaptchaV2 solver = new TwoCaptchaV2(this.key);
         Captcha сaptcha = new Captcha();
 
         params.put("type", "AltchaTaskProxyless");
@@ -32,7 +32,7 @@ public class TextExampleV2 {
 
         сaptcha.params = params;
         try {
-            solver.solve(сaptcha);
+            //solver.solve(сaptcha);
             System.out.println("Captcha solved: " + сaptcha.getCode());
         } catch (Exception e) {
             System.out.println("Error occurred: " + e.getMessage());
