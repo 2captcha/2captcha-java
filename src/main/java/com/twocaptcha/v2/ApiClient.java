@@ -51,10 +51,6 @@ public class ApiClient {
         return responseJsonObject.getLong("taskId");
     }
 
-    private void pause (){
-
-    }
-
     public JSONObject getTaskResult(Long taskId) throws Exception {
         long startedAt = (long) (System.currentTimeMillis() / 1000);
 
