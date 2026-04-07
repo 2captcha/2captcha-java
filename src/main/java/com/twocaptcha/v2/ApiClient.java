@@ -1,6 +1,5 @@
 package com.twocaptcha.v2;
 
-import com.twocaptcha.exceptions.TimeoutException;
 import org.json.JSONObject;
 
 import java.io.IOException;
@@ -8,20 +7,18 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.util.Map;
 
 public class ApiClient {
     String apiKey;
     private Long id;
     int timeout = 120;
     int pollingInterval = 10;
-    HttpClient httpClient = null;
+    HttpClient httpClient = HttpClient.newHttpClient();
     String createTaskUri = "https://api.2captcha.com/createTask";
     String getTaskResultUri = "https://api.2captcha.com/getTaskResult";
 
     public ApiClient(String apiKey) {
         this.apiKey = apiKey;
-        httpClient = HttpClient.newHttpClient();
     }
 
     public JSONObject solve(JSONObject jsonObject) throws Exception {
