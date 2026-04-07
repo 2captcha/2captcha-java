@@ -15,26 +15,34 @@ public class ApiClient {
     private Long id;
     int timeout = 120;
     int pollingInterval = 10;
+    HttpClient httpClient = null;
+    String createTaskUri = "https://api.2captcha.com/createTask";
+    String getTaskResultUri = "https://api.2captcha.com/getTaskResult";
 
     public ApiClient(String apiKey) {
         this.apiKey = apiKey;
+        httpClient = HttpClient.newHttpClient();
     }
 
     public JSONObject solve(JSONObject jsonObject) throws Exception {
-        this.id = send(jsonObject);
-        return waitForResult(this.id);
+        this.id = createTask(jsonObject);
+        return getTaskResult(this.id);
     }
 
-    private Long send(JSONObject jsonObject) throws IOException, InterruptedException {
-        HttpClient client = HttpClient.newHttpClient();
+    private HttpRequest request (JSONObject jsonObject, String uri){
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create("https://api.2captcha.com/createTask"))
+                .uri(URI.create(uri))
                 .header("Content-Type", "application/json")
                 .header("Accept", "application/json")
                 .POST(HttpRequest.BodyPublishers.ofString(jsonObject.toString()))
                 .build();
+        return request;
+    }
 
-        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+    private Long createTask(JSONObject jsonObject) throws IOException, InterruptedException {
+
+        HttpRequest request = request(jsonObject, createTaskUri);
+        HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
 
         System.out.println("Status: " + response.statusCode());
         System.out.println("Body: " + response.body());
@@ -43,7 +51,11 @@ public class ApiClient {
         return responseJsonObject.getLong("taskId");
     }
 
-    public JSONObject waitForResult(Long taskId) throws Exception {
+    private void pause (){
+
+    }
+
+    public JSONObject getTaskResult(Long taskId) throws Exception {
         long startedAt = (long) (System.currentTimeMillis() / 1000);
 
         while (true) {
@@ -56,27 +68,23 @@ public class ApiClient {
             }
 
             try {
-                JSONObject json = new JSONObject();
-                json.put("clientKey", this.apiKey);
-                json.put("taskId", taskId);
+                JSONObject jsonObject = new JSONObject();
+                jsonObject.put("clientKey", this.apiKey);
+                jsonObject.put("taskId", taskId);
 
-                HttpClient client = HttpClient.newHttpClient();
-                HttpRequest request = HttpRequest.newBuilder()
-                        .uri(URI.create("https://api.2captcha.com/getTaskResult"))
-                        .header("Content-Type", "application/json")
-                        .header("Accept", "application/json")
-                        .POST(HttpRequest.BodyPublishers.ofString(json.toString()))
-                        .build();
-
-                HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+                HttpRequest request = request(jsonObject, getTaskResultUri);
+                HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
 
                 System.out.println("Status: " + response.statusCode());
                 System.out.println("Body: " + response.body());
 
-                JSONObject jsonObject = new JSONObject(response.body());
-                String status = jsonObject.getString("status");
+                JSONObject jsonObjectResponse = new JSONObject(response.body());
+                /*
+                Body: {"errorId":12,"errorCode":"ERROR_CAPTCHA_UNSOLVABLE","errorDescription":"Workers could not solve the Captcha"}
+                 */
+                String status = jsonObjectResponse.getString("status");
                 if(status.equals("ready")) {
-                    return jsonObject;
+                    return jsonObjectResponse;
                 }
 
             } catch (Exception e) {
