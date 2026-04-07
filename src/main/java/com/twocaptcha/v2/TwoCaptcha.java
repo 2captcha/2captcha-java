@@ -1,5 +1,6 @@
-package com.twocaptcha;
+package com.twocaptcha.v2;
 
+import com.twocaptcha.ApiClient;
 import com.twocaptcha.captcha.Captcha;
 import com.twocaptcha.captcha.ReCaptcha;
 import com.twocaptcha.exceptions.ApiException;
@@ -16,7 +17,7 @@ import java.util.Map;
 /**
  * Class TwoCaptcha
  */
-public class TwoCaptchaV2 {
+public class TwoCaptcha {
 
     /**
      * API KEY
@@ -61,13 +62,13 @@ public class TwoCaptchaV2 {
     /**
      * Network client
      */
-    private ApiClientV2 apiClient;
+    private com.twocaptcha.ApiClient apiClient;
 
     /**
      * TwoCaptcha constructor
      */
-    public TwoCaptchaV2() {
-        this.apiClient = new ApiClientV2();
+    public TwoCaptcha() {
+        this.apiClient = new com.twocaptcha.ApiClient();
     }
 
     /**
@@ -75,12 +76,12 @@ public class TwoCaptchaV2 {
      *
      * @param apiKey
      */
-    public TwoCaptchaV2(String apiKey) {
+    public TwoCaptcha(String apiKey) {
         this();
         setApiKey(apiKey);
     }
 
-    public TwoCaptchaV2(String apiKey, int extendedResponse) {
+    public TwoCaptcha(String apiKey, int extendedResponse) {
         this();
         setApiKey(apiKey);
         this.extendedResponse = extendedResponse;
@@ -139,25 +140,19 @@ public class TwoCaptchaV2 {
     /**
      * @param apiClient
      */
-    public void setHttpClient(ApiClientV2 apiClient) {
+    public void setHttpClient(ApiClient apiClient) {
         this.apiClient = apiClient;
     }
 
-    /**
-     * Sends captcha to `/in.php` and waits for it's result.
-     * This helper can be used instead of manual using of `send` and `getResult` functions.
-     *
-     * @param captcha
-     * @throws Exception
-     */
-    public void solve(Captcha captcha) throws Exception {
+    public void solve(JSONObject jsonObject) throws Exception {
         Map<String, Integer> waitOptions = new HashMap<>();
 
-        if (captcha instanceof ReCaptcha) {
+        //todo
+        /*if (captcha instanceof ReCaptcha) {
             waitOptions.put("timeout", recaptchaTimeout);
-        }
+        }*/
 
-        solve(captcha, waitOptions);
+        solve(jsonObject, waitOptions);
     }
 
     /**
@@ -168,7 +163,7 @@ public class TwoCaptchaV2 {
      * @param waitOptions
      * @throws Exception
      */
-    public void solve(Captcha captcha, Map<String, Integer> waitOptions) throws Exception {
+    public void solve(JSONObject jsonObject, Map<String, Integer> waitOptions) throws Exception {
         captcha.setId(send(captcha));
 
         if (!lastCaptchaHasCallback) {
