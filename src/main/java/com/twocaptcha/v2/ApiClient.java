@@ -12,7 +12,7 @@ public class ApiClient {
     private int softId = 4581;
     String apiKey;
     private Long id;
-    int timeout = 120;
+    int timeout = 160;
     int pollingInterval = 10;
     HttpClient httpClient = HttpClient.newHttpClient();
     String createTaskUri = "https://api.2captcha.com/createTask";
