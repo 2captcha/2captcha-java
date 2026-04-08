@@ -10,8 +10,6 @@ import java.net.http.HttpResponse;
 
 public class ApiClient {
     private int softId = 4581;
-    //String callbackUrl;
-    int recaptchaTimeout = 600;
     String apiKey;
     private Long id;
     int timeout = 120;
