@@ -14,7 +14,8 @@ public class Example {
         ApiClient apiClient = new ApiClient(this.key);
         JSONObject innerJsonObject = new JSONObject()
                 .put("type", "TextCaptchaTask")
-                .put("comment", "If tomorrow is Saturday, what day is today?");
+                .put("comment", "If tomorrow is Saturday, what day is today?")
+                .put("callbackUrl", "http://example.com");
 
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("clientKey", this.key);

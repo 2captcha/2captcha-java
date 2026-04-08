@@ -9,6 +9,9 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 public class ApiClient {
+    private int softId = 4581;
+    //String callbackUrl;
+    int recaptchaTimeout = 600;
     String apiKey;
     private Long id;
     int timeout = 120;
@@ -22,11 +25,16 @@ public class ApiClient {
     }
 
     public JSONObject solve(JSONObject jsonObject) throws Exception {
-        this.id = createTask(jsonObject);
+        jsonObject.put("softId", softId);
+        JSONObject responseJsonObject = createTask(jsonObject);
+        this.id = responseJsonObject.getLong("taskId");
+
+        if (!jsonObject.getJSONObject("task").getString("callbackUrl").isEmpty())
+            return responseJsonObject;
         return getTaskResult(this.id);
     }
 
-    private HttpRequest request (JSONObject jsonObject, String uri){
+    private HttpRequest request(JSONObject jsonObject, String uri) {
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(uri))
                 .header("Content-Type", "application/json")
@@ -36,7 +44,7 @@ public class ApiClient {
         return request;
     }
 
-    private Long createTask(JSONObject jsonObject) throws IOException, InterruptedException {
+    private JSONObject createTask(JSONObject jsonObject) throws IOException, InterruptedException {
 
         HttpRequest request = request(jsonObject, createTaskUri);
         HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
@@ -45,7 +53,7 @@ public class ApiClient {
         System.out.println("Body: " + response.body());
 
         JSONObject responseJsonObject = new JSONObject(response.body());
-        return responseJsonObject.getLong("taskId");
+        return responseJsonObject;
     }
 
     public JSONObject getTaskResult(Long taskId) throws Exception {
@@ -76,7 +84,7 @@ public class ApiClient {
                 Body: {"errorId":12,"errorCode":"ERROR_CAPTCHA_UNSOLVABLE","errorDescription":"Workers could not solve the Captcha"}
                  */
                 String status = jsonObjectResponse.getString("status");
-                if(status.equals("ready")) {
+                if (status.equals("ready")) {
                     return jsonObjectResponse;
                 }
 
