@@ -27,7 +27,8 @@ public class ApiClient {
         JSONObject responseJsonObject = createTask(jsonObject);
         this.id = responseJsonObject.getLong("taskId");
 
-        if (!jsonObject.getJSONObject("task").getString("callbackUrl").isEmpty())
+        if (jsonObject.getJSONObject("task").has("callbackUrl")
+                && !jsonObject.getJSONObject("task").getString("callbackUrl").isEmpty())
             return responseJsonObject;
         return getTaskResult(this.id);
     }
@@ -77,10 +78,18 @@ public class ApiClient {
                 System.out.println("Status: " + response.statusCode());
                 System.out.println("Body: " + response.body());
 
-                JSONObject jsonObjectResponse = new JSONObject(response.body());
+                //temp JSONObject jsonObjectResponse = new JSONObject(response.body());
+//test
+                String jsonStr = "{\"errorId\":12,\"errorCode\":\"ERROR_CAPTCHA_UNSOLVABLE\",\"errorDescription\":\"Workers could not solve the Captcha\"}";
+                JSONObject jsonObjectResponse = new JSONObject(jsonStr);
                 /*
                 Body: {"errorId":12,"errorCode":"ERROR_CAPTCHA_UNSOLVABLE","errorDescription":"Workers could not solve the Captcha"}
                  */
+
+                if(jsonObjectResponse.has("errorId")
+                        && !jsonObjectResponse.getString("errorId").isEmpty())
+                    return jsonObjectResponse;
+
                 String status = jsonObjectResponse.getString("status");
                 if (status.equals("ready")) {
                     return jsonObjectResponse;
