@@ -78,16 +78,14 @@ public class ApiClient {
                 System.out.println("Status: " + response.statusCode());
                 System.out.println("Body: " + response.body());
 
-                //temp JSONObject jsonObjectResponse = new JSONObject(response.body());
-//test
-                String jsonStr = "{\"errorId\":12,\"errorCode\":\"ERROR_CAPTCHA_UNSOLVABLE\",\"errorDescription\":\"Workers could not solve the Captcha\"}";
-                JSONObject jsonObjectResponse = new JSONObject(jsonStr);
-                /*
-                Body: {"errorId":12,"errorCode":"ERROR_CAPTCHA_UNSOLVABLE","errorDescription":"Workers could not solve the Captcha"}
-                 */
+                JSONObject jsonObjectResponse = new JSONObject(response.body());
+//test todo: remove
+                //String jsonStr = "{\"errorId\":12,\"errorCode\":\"ERROR_CAPTCHA_UNSOLVABLE\",\"errorDescription\":\"Workers could not solve the Captcha\"}";
+                //JSONObject jsonObjectResponse = new JSONObject(jsonStr);
+                //Body: {"errorId":12,"errorCode":"ERROR_CAPTCHA_UNSOLVABLE","errorDescription":"Workers could not solve the Captcha"}
 
                 if(jsonObjectResponse.has("errorId")
-                        && !jsonObjectResponse.getString("errorId").isEmpty())
+                        && jsonObjectResponse.getInt("errorId") > 0)
                     return jsonObjectResponse;
 
                 String status = jsonObjectResponse.getString("status");
