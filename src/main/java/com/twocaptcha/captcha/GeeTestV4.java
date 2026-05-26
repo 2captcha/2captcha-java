@@ -21,6 +21,9 @@ public class GeeTestV4 extends Captcha {
 
     public void setCaptchaId(String captchaId) {
         params.put("captcha_id", captchaId);
-    }    
+    }
 
+    public void setRiskType(String riskType) {
+        params.put("risk_type", riskType);
+    }
 }
