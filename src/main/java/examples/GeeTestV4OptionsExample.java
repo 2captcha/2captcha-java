@@ -18,6 +18,7 @@ public class GeeTestV4OptionsExample {
         captcha.setApiServer("api-na.geetest.com");
         captcha.setChallenge("12345678abc90123d45678ef90123a456b");
         captcha.setUrl("https://mysite.com/captcha.html");
+        captcha.setRiskType("slide|1779887038.402245|6563f67750ef47d9b1302ef524gf719f|04fe1ca6a68510c08f6f9aacfe4ce284a9e672d9ecb4212e6cd593ad583ef054");
         captcha.setProxy("HTTPS", "login:password@IP_address:PORT");
 
 
