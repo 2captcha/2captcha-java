@@ -72,7 +72,7 @@ public abstract class Captcha {
         params.put("sitekey", siteKey);
     }
 
-    public void setUrl(String url) {
+    public void setPageUrl(String url) {
         params.put("pageurl", url);
     }
 }

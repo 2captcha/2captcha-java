@@ -11,7 +11,7 @@ public class VkCaptchaTest extends AbstractWrapperTestCase {
     public void testAllOptions() throws Exception {
         VkCaptcha captcha = new VkCaptcha("vkimage");
         captcha.setSiteKey("0x4AAAAAAAChNiVJM_WtShFf");
-        captcha.setUrl("https://ace.fusionist.io");
+        captcha.setPageUrl("https://ace.fusionist.io");
 
         Map<String, String> params = new HashMap<>();
         params.put("method", "vkimage");

@@ -49,6 +49,7 @@ Examples of API requests for different captcha types are available on the [Java 
     - [VK Captcha](#vk-captcha)
     - [VK Image](#vk-image)
     - [Altchacaptcha](#altchacaptcha)
+    - [Binancecaptcha](#binancecaptcha)
   - [Other methods](#other-methods)
     - [send / getResult](#send--getresult)
     - [balance](#balance)
@@ -580,6 +581,19 @@ Use this method to solve Altcha Captcha and obtain a token to bypass the protect
 Altchacaptcha captcha = new Altchacaptcha();
 captcha.setChallengeUrl("https://.../captcha/api/altcha/challenge");
 captcha.setPageUrl("https://site.com/");
+```
+
+### Binancecaptcha
+
+<sup>[API method description.](https://2captcha.com/ru/2captcha-api#binance)</sup>
+
+Use this method to solve Binance Captcha and obtain a token to bypass the protection.
+
+```java
+BinanceCaptcha captcha = new BinanceCaptcha();
+captcha.setSiteKey("login");
+captcha.setPageUrl("https://example.com/page-with-binance");
+captcha.setValidateId("cb0bfef...e54ecd57b");
 ```
 
 ## Other methods
