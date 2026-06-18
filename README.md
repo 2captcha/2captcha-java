@@ -50,6 +50,7 @@ Examples of API requests for different captcha types are available on the [Java 
     - [VK Image](#vk-image)
     - [Altchacaptcha](#altchacaptcha)
     - [Binancecaptcha](#binancecaptcha)
+    - [Yidun](#yidun)
   - [Other methods](#other-methods)
     - [send / getResult](#send--getresult)
     - [balance](#balance)
@@ -595,6 +596,19 @@ captcha.setSiteKey("login");
 captcha.setPageUrl("https://example.com/page-with-binance");
 captcha.setValidateId("cb0bfef...e54ecd57b");
 ```
+
+### Yidun
+
+<sup>[API method description.](https://2captcha.com/ru/2captcha-api#yidun)</sup>
+
+Use this method to solve Yidun Captcha and obtain a token to bypass the protection.
+
+```java
+Yidun captcha = new Yidun();
+captcha.setSiteKey("0f743r3g1...8rz3grz0ym5");
+captcha.setPageUrl("https://example.com/page-with-yidun");
+```
+
 
 ## Other methods
 
