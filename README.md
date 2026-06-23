@@ -51,6 +51,7 @@ Examples of API requests for different captcha types are available on the [Java 
     - [Altchacaptcha](#altchacaptcha)
     - [Binancecaptcha](#binancecaptcha)
     - [Yidun](#yidun)
+    - [Alibaba](#alibaba)
   - [Other methods](#other-methods)
     - [send / getResult](#send--getresult)
     - [balance](#balance)
@@ -607,6 +608,19 @@ Use this method to solve Yidun Captcha and obtain a token to bypass the protecti
 Yidun captcha = new Yidun();
 captcha.setSiteKey("0f743r3g1...8rz3grz0ym5");
 captcha.setPageUrl("https://example.com/page-with-yidun");
+```
+
+### Alibaba
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#alibaba)</sup>
+
+Use this method to solve Alibaba Captcha and obtain a token to bypass the protection.
+
+```java
+AlibabaCaptcha captcha = new AlibabaCaptcha();
+captcha.setSceneId("login");
+captcha.setPrefix("https://img.alicdn.com/tfs/...");
+captcha.setPageUrl("https://example.com/page-with-alibaba");
 ```
 
 
