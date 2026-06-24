@@ -15,7 +15,7 @@ public class BasiliskOptionsExample {
 
         Basilisk captcha = new Basilisk();
         captcha.setSiteKey("b7890h...19fb2600897");
-        captcha.setUrl("https://example.com/page-with-basilisk");
+        captcha.setPageUrl("https://example.com/page-with-basilisk");
         captcha.setUserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36");
         captcha.setProxy("HTTPS", "login:password@IP_address:PORT");
 
