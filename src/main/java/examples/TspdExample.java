@@ -1,16 +1,17 @@
 package examples;
 
 import com.twocaptcha.TwoCaptcha;
-import com.twocaptcha.captcha.Basilisk;
+import com.twocaptcha.captcha.Tspd;
 
-public class BasiliskExample {
+public class TspdExample {
 
     public static void main(String[] args) {
         TwoCaptcha solver = new TwoCaptcha(args[0]);
 
-        Basilisk captcha = new Basilisk();
-        captcha.setSiteKey("b7890h...19fb2600897");
-        captcha.setPageUrl("https://example.com/page-with-basilisk");
+        Tspd captcha = new Tspd();
+        captcha.setPageUrl("https://example.com/page-with-tspd");
+        captcha.setTspdCookie("TS386a400d029=...");
+        captcha.setHtmlPageBase64("PCFET0NUWVBFIGh0bWw+...");
         captcha.setUserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36");
         captcha.setProxy("HTTPS", "login:password@IP_address:PORT");
 
