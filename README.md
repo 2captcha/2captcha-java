@@ -54,6 +54,7 @@ Examples of API requests for different captcha types are available on the [Java 
     - [Basilisk](#basilisk)
     - [Alibaba](#alibaba)
     - [TSPD](#tspd)
+    - [Hunt](#hunt)
   - [Other methods](#other-methods)
     - [send / getResult](#send--getresult)
     - [balance](#balance)
@@ -648,6 +649,21 @@ Tspd captcha = new Tspd();
 captcha.setPageUrl("https://example.com/page-with-tspd");
 captcha.setTspdCookie("TS386a400d029=...");
 captcha.setHtmlPageBase64("PCFET0NUWVBFIGh0bWw+...");
+captcha.setUserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36");
+captcha.setProxy("HTTPS", "login:password@IP_address:PORT");
+```
+
+### Hunt
+
+<sup>[API method description.](https://2captcha.com/ru/2captcha-api#hunt)</sup>
+
+Use this method to solve Hunt Captcha and obtain a token to bypass the protection.
+
+```java
+Hunt captcha = new Hunt();
+captcha.setPageUrl("https://example.com/page-with-hunt");
+captcha.setApiGetLib("https://example.com/api.js");
+captcha.setData("meta.token.value");
 captcha.setUserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36");
 captcha.setProxy("HTTPS", "login:password@IP_address:PORT");
 ```
