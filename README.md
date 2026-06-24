@@ -51,6 +51,7 @@ Examples of API requests for different captcha types are available on the [Java 
     - [Altchacaptcha](#altchacaptcha)
     - [Binancecaptcha](#binancecaptcha)
     - [Yidun](#yidun)
+    - [Basilisk](#basilisk)
     - [Alibaba](#alibaba)
   - [Other methods](#other-methods)
     - [send / getResult](#send--getresult)
@@ -621,6 +622,18 @@ AlibabaCaptcha captcha = new AlibabaCaptcha();
 captcha.setSceneId("login");
 captcha.setPrefix("https://img.alicdn.com/tfs/...");
 captcha.setPageUrl("https://example.com/page-with-alibaba");
+```
+
+### Basilisk
+
+<sup>[API method description.](https://2captcha.com/ru/2captcha-api#basilisk)</sup>
+
+Use this method to solve Basilisk Captcha and obtain a token to bypass the protection.
+
+```java
+Basilisk captcha = new Basilisk();
+captcha.setSiteKey("b7890h...19fb2600897");
+captcha.setUrl("https://example.com/page-with-basilisk");
 ```
 
 
