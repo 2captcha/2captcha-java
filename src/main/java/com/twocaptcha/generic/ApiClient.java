@@ -97,7 +97,6 @@ public class ApiClient {
             }
         }
 
-        //throw new TimeoutException("Timeout " + this.timeout + " seconds reached");
         throw new Exception("Timeout " + this.timeout + " seconds reached");
     }
 }

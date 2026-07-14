@@ -41,6 +41,10 @@ public class ExampleBase64 {
     }
 
     public static void main(String[] args) throws IOException {
+        if (args.length == 0) {
+            System.out.println("Provide api key as first parameter");
+            return;
+        }
         ExampleBase64 example = new ExampleBase64(args[0]);
         example.resolve();
     }
