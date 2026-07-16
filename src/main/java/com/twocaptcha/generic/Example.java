@@ -41,6 +41,19 @@ public class Example {
         }
     }
 
+    private void reportCorrect(){
+        if(apiClient.taskId < 0) return;
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("clientKey", this.key);
+        jsonObject.put("taskId", apiClient.taskId);
+        try {
+            JSONObject resultJsonObject = apiClient.reportCorrect(jsonObject);
+            System.out.println("Result: " + resultJsonObject.toString());
+        } catch (Exception e) {
+            System.out.println("Error occurred: " + e.getMessage());
+        }
+    }
+
     public static void main(String[] args) {
         if (args.length == 0) {
             System.out.println("Provide api key as first parameter");
@@ -50,6 +63,7 @@ public class Example {
         Example example = new Example(args[0]);
         example.resolve();
         example.getBalance();
+        example.reportCorrect();
     }
 
 }
