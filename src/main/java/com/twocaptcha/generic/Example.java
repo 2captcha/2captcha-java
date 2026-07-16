@@ -5,13 +5,14 @@ import org.json.JSONObject;
 public class Example {
 
     private String key;
+    ApiClient apiClient = null;
 
     public Example(String key) {
         this.key = key;
+        apiClient = new ApiClient(this.key);
     }
 
     private void resolve(){
-        ApiClient apiClient = new ApiClient(this.key);
         JSONObject innerJsonObject = new JSONObject()
                 .put("type", "TextCaptchaTask")
                 .put("comment", "If tomorrow is Saturday, what day is today?");
@@ -27,7 +28,17 @@ public class Example {
         } catch (Exception e) {
             System.out.println("Error occurred: " + e.getMessage());
         }
+    }
 
+    private void getBalance(){
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("clientKey", this.key);
+        try {
+            JSONObject resultJsonObject = apiClient.getBalance(jsonObject);
+            System.out.println("Result: " + resultJsonObject.toString());
+        } catch (Exception e) {
+            System.out.println("Error occurred: " + e.getMessage());
+        }
     }
 
     public static void main(String[] args) {
@@ -38,6 +49,7 @@ public class Example {
 
         Example example = new Example(args[0]);
         example.resolve();
+        example.getBalance();
     }
 
 }

@@ -7,6 +7,8 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ApiClient {
     private int softId = 4581;
@@ -17,6 +19,7 @@ public class ApiClient {
     HttpClient httpClient = HttpClient.newHttpClient();
     String createTaskUri = "https://api.2captcha.com/createTask";
     String getTaskResultUri = "https://api.2captcha.com/getTaskResult";
+    String getBalanceUri = "https://api.rucaptcha.com/getBalance";
 
     public ApiClient(String apiKey) {
         this.apiKey = apiKey;
@@ -99,4 +102,29 @@ public class ApiClient {
 
         throw new Exception("Timeout " + this.timeout + " seconds reached");
     }
+
+    public JSONObject getBalance(JSONObject jsonObject) throws Exception {
+        HttpRequest request = request(jsonObject, getBalanceUri);
+        HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+
+        System.out.println("Balance Request");
+        System.out.println("Status: " + response.statusCode());
+        System.out.println("Body: " + response.body());
+
+        JSONObject responseJsonObject = new JSONObject(response.body());
+        return responseJsonObject;
+    }
+/*
+    public void report(String id, boolean correct) throws Exception {
+        Map<String, String> params = new HashMap<>();
+        params.put("id", id);
+
+        if (correct) {
+            params.put("action", "reportgood");
+        } else {
+            params.put("action", "reportbad");
+        }
+
+        res(params);
+    }*/
 }
