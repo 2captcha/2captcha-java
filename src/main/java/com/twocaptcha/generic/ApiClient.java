@@ -17,8 +17,8 @@ public class ApiClient {
     int timeout = 160;
     int pollingInterval = 10;
     HttpClient httpClient = HttpClient.newHttpClient();
-    String createTaskUri = "https://api.2captcha.com/createTask";
-    String getTaskResultUri = "https://api.2captcha.com/getTaskResult";
+    String createTaskUri = "https://api.rucaptcha.com/createTask";
+    String getTaskResultUri = "https://api.rucaptcha.com/getTaskResult";
     String getBalanceUri = "https://api.rucaptcha.com/getBalance";
     String reportCorrectUri = "https://api.rucaptcha.com/reportCorrect";
 

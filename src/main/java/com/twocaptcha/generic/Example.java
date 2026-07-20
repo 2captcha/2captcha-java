@@ -46,6 +46,10 @@ public class Example {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("clientKey", this.key);
         jsonObject.put("taskId", apiClient.taskId);
+        //"clientKey": "f5d2843c45ec73904837bba136e055e1",
+          //      "taskId": 54493714006
+        //jsonObject.put("clientKey", "f5d2843c45ec73904837bba136e055e1");
+        //jsonObject.put("taskId", "54493714006");
         try {
             JSONObject resultJsonObject = apiClient.reportCorrect(jsonObject);
             System.out.println("Result: " + resultJsonObject.toString());
