@@ -2,13 +2,10 @@ package com.twocaptcha.generic;
 
 import org.json.JSONObject;
 
-import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.util.HashMap;
-import java.util.Map;
 
 public class ApiClient {
     private int softId = 4581;
@@ -21,6 +18,7 @@ public class ApiClient {
     String getTaskResultUri = "https://api.rucaptcha.com/getTaskResult";
     String getBalanceUri = "https://api.rucaptcha.com/getBalance";
     String reportCorrectUri = "https://api.rucaptcha.com/reportCorrect";
+    String reportIncorrectUri = "https://api.rucaptcha.com/reportIncorrect";
 
     public ApiClient(String apiKey) {
         this.apiKey = apiKey;
@@ -104,6 +102,11 @@ public class ApiClient {
     public JSONObject reportCorrect(JSONObject jsonObject) throws Exception {
         System.out.println("Report Correct Request");
         return doRequest(reportCorrectUri, jsonObject);
+    }
+
+    public JSONObject reportIncorrect(JSONObject jsonObject) throws Exception {
+        System.out.println("Report Incorrect Request");
+        return doRequest(reportIncorrectUri, jsonObject);
     }
 
     private JSONObject doRequest(String uri, JSONObject jsonObject) throws Exception {

@@ -46,12 +46,21 @@ public class Example {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("clientKey", this.key);
         jsonObject.put("taskId", apiClient.taskId);
-        //"clientKey": "f5d2843c45ec73904837bba136e055e1",
-          //      "taskId": 54493714006
-        //jsonObject.put("clientKey", "f5d2843c45ec73904837bba136e055e1");
-        //jsonObject.put("taskId", "54493714006");
         try {
             JSONObject resultJsonObject = apiClient.reportCorrect(jsonObject);
+            System.out.println("Result: " + resultJsonObject.toString());
+        } catch (Exception e) {
+            System.out.println("Error occurred: " + e.getMessage());
+        }
+    }
+
+    private void reportIncorrect(){
+        if(apiClient.taskId < 0) return;
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("clientKey", this.key);
+        jsonObject.put("taskId", apiClient.taskId);
+        try {
+            JSONObject resultJsonObject = apiClient.reportIncorrect(jsonObject);
             System.out.println("Result: " + resultJsonObject.toString());
         } catch (Exception e) {
             System.out.println("Error occurred: " + e.getMessage());
@@ -68,6 +77,7 @@ public class Example {
         example.resolve();
         example.getBalance();
         example.reportCorrect();
+        example.reportIncorrect();
     }
 
 }
