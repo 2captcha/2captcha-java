@@ -17,7 +17,7 @@ public class BasiliskTest extends AbstractWrapperTestCase {
         params.put("method", "basilisk");
         params.put("sitekey", "b7890h...19fb2600897");
         params.put("pageurl", "https://example.com/page-with-basilisk");
-        params.put("useragent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36");
+        params.put("userAgent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36");
         params.put("soft_id", "4581");
         params.put("json", "0");
 
