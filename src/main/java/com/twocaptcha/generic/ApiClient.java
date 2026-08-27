@@ -53,6 +53,10 @@ public class ApiClient {
     public JSONObject getTaskResult(Long taskId) throws Exception {
         long startedAt = (long) (System.currentTimeMillis() / 1000);
 
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("clientKey", this.apiKey);
+        jsonObject.put("taskId", taskId);
+
         int requestNum = 0;
         while (true) {
             long now = (long) (System.currentTimeMillis() / 1000);
@@ -64,18 +68,8 @@ public class ApiClient {
             }
 
             try {
-                JSONObject jsonObject = new JSONObject();
-                jsonObject.put("clientKey", this.apiKey);
-                jsonObject.put("taskId", taskId);
-
-                HttpRequest request = request(jsonObject, getTaskResultUri);
-                HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
-
                 System.out.println("GetTaskResult Request N: " + ++requestNum);
-                System.out.println("Status: " + response.statusCode());
-                System.out.println("Body: " + response.body());
-
-                JSONObject jsonObjectResponse = new JSONObject(response.body());
+                JSONObject jsonObjectResponse = doRequest(getTaskResultUri, jsonObject);
 
                 if (jsonObjectResponse.has("errorId")
                         && jsonObjectResponse.getInt("errorId") > 0)
