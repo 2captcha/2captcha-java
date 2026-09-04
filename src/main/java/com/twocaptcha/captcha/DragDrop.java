@@ -31,4 +31,8 @@ public class DragDrop extends Captcha {
         params.put("lang", lang);
     }
 
+    public void setHeaderAcao(String headerAcao) {
+        params.put("header_acao", headerAcao);
+    }
+
 }
