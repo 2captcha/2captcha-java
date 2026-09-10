@@ -55,6 +55,7 @@ Examples of API requests for different captcha types are available on the [Java 
     - [Alibaba](#alibaba)
     - [TSPD](#tspd)
     - [Hunt](#hunt)
+    - [DragDrop](#dragdrop)
   - [Other methods](#other-methods)
     - [send / getResult](#send--getresult)
     - [balance](#balance)
@@ -666,6 +667,20 @@ captcha.setApiGetLib("https://example.com/api.js");
 captcha.setData("meta.token.value");
 captcha.setUserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36");
 captcha.setProxy("HTTPS", "login:password@IP_address:PORT");
+```
+
+### DragDrop
+
+<sup>[API method description.](https://2captcha.com/ru/2captcha-api#drag-and-drop-captcha)</sup>
+
+Use this method to solve a captcha where one or more images need to be dragged onto specific positions on a background image. Unlike most other methods, the result is not a token but a string with coordinates for each dragged image, in the same order as the `images` you sent (an image that doesn't need to be moved comes back as `null`).
+
+```java
+DragDrop captcha = new DragDrop();
+captcha.setBase64(background); // background image encoded to base64
+captcha.setImages(Arrays.asList(image1, image2)); // images to drag, encoded to base64
+captcha.setHintText("Drag the images to proper position");
+captcha.setLang("en");
 ```
 
 
