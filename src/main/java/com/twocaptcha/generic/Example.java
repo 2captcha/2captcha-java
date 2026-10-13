@@ -75,9 +75,9 @@ public class Example {
 
         Example example = new Example(args[0]);
         example.resolve();
-        example.getBalance();
-        example.reportCorrect();
-        example.reportIncorrect();
+        //example.getBalance();
+        //example.reportCorrect();
+        //example.reportIncorrect();
     }
 
 }
