@@ -56,6 +56,7 @@ Examples of API requests for different captcha types are available on the [Java 
     - [TSPD](#tspd)
     - [Hunt](#hunt)
     - [DragDrop](#dragdrop)
+    - [Imperva](#imperva)
   - [Other methods](#other-methods)
     - [send / getResult](#send--getresult)
     - [balance](#balance)
@@ -681,6 +682,25 @@ captcha.setBase64(background); // background image encoded to base64
 captcha.setImages(Arrays.asList(image1, image2)); // images to drag, encoded to base64
 captcha.setHintText("Drag the images to proper position");
 captcha.setLang("en");
+```
+
+### Imperva
+
+<sup>[API method description.](https://2captcha.com/ru/2captcha-api#imperva)</sup>
+
+Use this method to solve Imperva (Incapsula) protection. Unlike most token-based methods, the result is a JSON string with cookies (`reese84`, `incap_ses_*`, etc.) grouped by domain, and optionally the `User-Agent` header. Pass these cookies to the target site, using the same User-Agent if it is returned.
+
+> [!IMPORTANT]
+> To solve the Imperva captcha, you must use a proxy. It is recommended to use [residential proxies].
+
+```java
+Imperva captcha = new Imperva();
+captcha.setPageUrl("https://example.com/login");
+captcha.setIncapsulaScriptUrl("/_Incapsula_Resource?SWUDNSAI=31&xinfo=1");
+captcha.setIncapsulaCookies("visid_incap_123456=sample; incap_ses_123_123456=sample");
+captcha.setReese84UrlEndpoint("https://example.com/_Incapsula_Resource?reese84=1");
+captcha.setUserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36");
+captcha.setProxy("HTTP", "login:password@IP_address:PORT");
 ```
 
 
